@@ -1,0 +1,19 @@
+/* Design references reviewed: vipulgupta2048/codex-skills (vanilla patterns),
+   Ilm-Alan/frontend-design (explicit content/tokens), Wikimedia Codex (accessible controls).
+   Original CSS for this project. User palette takes precedence over preset palettes. */
+:root{--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;--ease-celebrate:cubic-bezier(.22,1,.36,1);--focus-color:#a90061}
+.hero-art img{object-position:center;aspect-ratio:1/1}
+.experiences{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr)}
+.open-plans{display:flex;justify-content:space-between;align-items:center;gap:var(--space-8);padding:clamp(24px,3.5vw,48px);margin-top:48px;border:1px solid #bedfe7;border-radius:24px;background:#eefafd}
+.open-plans h3{font-size:clamp(28px,3vw,42px);line-height:1.08;max-width:650px}
+.open-plans p{max-width:690px;margin-top:16px;font-size:17px;line-height:1.6}
+.open-plans .btn{flex-shrink:0}
+.venue-capacity{margin-top:28px;font-size:18px}
+.venue-capacity strong{font-family:var(--display);font-size:26px;font-weight:800;letter-spacing:-.02em}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible,summary:focus-visible{outline-color:var(--focus-color);outline-width:3px;outline-offset:4px}
+.booking-widget input:not([type=radio]):not([type=checkbox]),.booking-widget select{min-height:48px}
+.proposal-wide-use{font-size:15px;line-height:1.7;max-width:850px;margin-top:24px!important}
+.panel-page .connection-card-heading h2{line-height:1.2}
+@media(prefers-reduced-motion:no-preference){.hero-art img,.experiences article{transition:transform 420ms var(--ease-celebrate)}.hero-art:hover img{transform:translateY(-3px)}.experiences article:hover{transform:translateY(-4px)}}
+@media(max-width:900px){.open-plans{align-items:flex-start;flex-direction:column}.open-plans .btn{font-size:15px}}
+@media(max-width:760px){.experiences{grid-template-columns:minmax(0,1fr)}.open-plans{padding:24px;margin-top:32px;border-radius:18px}.open-plans p{font-size:15px}.venue-capacity{font-size:15px}.venue-capacity strong{display:block;font-size:24px}.hero-art img{height:auto;aspect-ratio:1/1}}

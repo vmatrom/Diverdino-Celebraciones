@@ -5,13 +5,13 @@ Documento de trabajo para decidir, presupuestar y lanzar. GRAN PLAN es un nombre
 
 ## 1. La decisión empresarial
 
-Diverdino puede crecer desde un local conocido por sus fiestas infantiles hacia un espacio privado para celebraciones de distintas edades. La oportunidad consiste en vender con claridad **qué experiencia puede organizar cada cliente**, facilitar una reserva fiable y operar cada evento con el mismo estándar.
+Diverdino se proyecta como un espacio amplio de celebraciones y encuentros, con los cumpleaños infantiles como núcleo comercial. La marca también debe acoger reuniones familiares, quedadas de amigos, cenas, charlas y otras actividades compatibles con el local. La oportunidad consiste en vender con claridad **qué experiencia puede organizar cada cliente**, facilitar una reserva fiable y operar cada evento con el mismo estándar.
 
 La propiedad ha elegido una **marca paraguas nueva y amplia**, conservando Diverdino como línea infantil. La propuesta creativa es **GRAN PLAN · Casa de celebraciones**, con tres accesos comerciales:
 
 - **Diverdino Kids, por Gran Plan:** cumpleaños y reuniones familiares con niños; conserva el reconocimiento de la marca actual.
 - **Gran Plan Social:** celebraciones de 16 y 18 años, siempre dentro de las condiciones autorizadas para el local y con los responsables que correspondan.
-- **Gran Plan Together:** cenas, reuniones de amigos y celebraciones familiares.
+- **Gran Plan Together:** cenas, reuniones de amigos, celebraciones familiares, charlas y otros encuentros revisados según actividad.
 
 Son nombres de trabajo. Antes de adoptarlos se debe comprobar disponibilidad y posibilidad de protección. En navegación y publicidad se acompañarán de expresiones que la gente ya busca: «cumpleaños infantiles», «fiestas de 16 y 18 años» y «local para cenas y reuniones en Elche». El nombre creativo nunca debe dificultar entender la oferta.
 
@@ -24,7 +24,7 @@ La nueva marca no exige borrar de golpe la anterior. Se mantiene el dominio `div
 
 Si finalmente se registra otro dominio, la migración debe incluir inventario de URLs, redirecciones 301 equivalentes, actualización de enlaces, sitemap y seguimiento de tráfico y consultas. No se abandona ni caduca el dominio actual. Las cuentas nuevas o cambios de nombre se realizan después de asegurar marca y accesos; la propuesta no supone que estén libres.
 
-El cambio visual debe demostrar cómo se transforma el mismo espacio. Un adulto tiene que poder imaginar una cena sin que la comunicación parezca una fiesta para niños. Una familia debe seguir reconociendo el parque de bolas y el ambiente cercano. Esto se resuelve con fotografía, disposición de mesas, iluminación y contenido por ocasión; requiere comprobar qué transformaciones son posibles y compatibles con la actividad autorizada.
+La comunicación debe priorizar a las familias y los cumpleaños infantiles, sin convertir el negocio completo en una marca exclusiva para niños. El cambio visual debe demostrar cómo se transforma el mismo espacio. Un adulto tiene que poder imaginar una cena sin que la comunicación parezca una fiesta para niños. Una familia debe seguir reconociendo el parque de bolas y el ambiente cercano. Esto se resuelve con fotografía, disposición de mesas, iluminación y contenido por ocasión; requiere comprobar qué transformaciones son posibles y compatibles con la actividad autorizada.
 
 ## 2. Qué sabemos y qué debemos validar
 
@@ -38,32 +38,33 @@ La información siguiente procede de lo indicado por la propiedad, de la web act
 | Dirección: C/ Francisco Vicente Rodríguez, 38, Elche | Web actual | Verificar formato y ubicación antes de publicar |
 | Teléfono: +34 644 580 495 | Web actual | Validar acceso y titularidad para la operación de WhatsApp |
 | Superficie anunciada: 180 m² | Web actual | No presentar como superficie útil certificada |
-| Aforo anunciado: 70 personas | Web actual | Pendiente de contraste con licencia y distribución; no activar como capacidad del motor |
+| Aforo: 75 personas entre niños y adultos | Confirmación directa de la propiedad, 14/10/2026 | Base de capacidad del proyecto; actualizar la web anterior que anunciaba 70 |
 | Parque de bolas, cocina, karaoke, TV, WiFi, mesas y sillas | Propiedad y web/material | Confirmar inventario, funcionamiento, límites y condiciones de uso |
 | Local céntrico | Descripción de la propiedad | Ubicar en mapa; evitar distancias o aparcamiento no verificados |
-| Instagram: `diverdino_celebraciones`; Facebook: `Diverdinoo` | Web actual | Auditar acceso, perfiles y datos antes de conectar |
+| Instagram, Facebook y TikTok | Propiedad y web actual | Los perfiles Instagram/Facebook están enlazados en la web; identificar el perfil de TikTok antes de enlazarlo |
+| Calendario actual: Shifter | Propiedad | Identificar aplicación y capacidad real de exportación/sincronización; no dar por activa una API |
 | Actividades, talleres y escuelas anunciados | Web actual | Separar del alquiler; verificar si siguen activos, su autorización y su rentabilidad |
 
 **Fuente de identidad y descripción:** [web actual de Diverdino](https://www.diverdinoelche.com/).
 
 La propiedad también facilitó [un enlace de catálogo de WhatsApp](https://wa.me/c/136481511342088). La comprobación disponible redirigió a una página de catálogo que devolvía 404; no se ha podido verificar su contenido. No se han extraído productos, servicios, precios ni un número de contacto de ese identificador. Se debe revisar desde la cuenta titular antes de reutilizarlo.
 
-### Tarifas aportadas por la propiedad en cartel el 14/10/2026
+### Tarifas actuales confirmadas por la propiedad el 14/10/2026
 
-La propiedad ha aportado directamente un cartel de tarifas el 14/10/2026. El material disponible en `Material/WhatsApp Image 2026-10-13 at 20.22.01.jpeg` recoge los siguientes importes, que se utilizan como base comercial del proyecto:
+La confirmación escrita posterior de la propiedad sustituye al cartel anterior de Material. La hora extra pasa a 20 € y la limpieza a 25 €; los alquileres y la reserva conservan los importes indicados a continuación:
 
-| Franja del cartel | Importe mostrado |
+| Franja vigente | Importe confirmado |
 |---|---:|
 | Lunes a jueves, 10:00–14:00 | 80 € |
 | Lunes a jueves, 16:00–21:00 | 100 € |
 | Viernes a domingo y festivos, 10:00–14:00 | 120 € |
 | Viernes a domingo y festivos, 16:00–21:30 | 130 € |
 | Día completo, 10:00–21:00 | 190 € |
-| Hora extra | 15 € |
-| Limpieza | 20 € |
+| Hora extra | 20 € |
+| Limpieza | 25 € |
 | Reserva | 20 € |
 
-Los importes están aportados; aún hay que concretar su tratamiento fiscal, el calendario de festivos y vísperas, si la limpieza es obligatoria, a qué días se aplica el día completo, si la «reserva» se descuenta del total, si existe una fianza independiente y las condiciones de horas adicionales. Estos puntos deben resolverse antes de activar las reglas de cobro. Si la tarde termina a las 21:30 y el día completo a las 21:00, la diferencia debe explicarse o corregirse con la propiedad; el sistema no debe decidirla por su cuenta.
+Los importes están aportados; aún hay que concretar su tratamiento fiscal, el calendario de festivos y vísperas, si la limpieza es obligatoria,  si la «reserva» se descuenta del total, si existe una fianza independiente y las condiciones de horas adicionales. Estos puntos deben resolverse antes de activar las reglas de cobro. Si la tarde termina a las 21:30 y el día completo a las 21:00, la diferencia debe explicarse o corregirse con la propiedad; el sistema no debe decidirla por su cuenta.
 
 ### Hipótesis que merece la pena probar
 
@@ -554,3 +555,13 @@ Mientras falte una condición, se puede enseñar una propuesta visual o recibir 
 El siguiente trimestre debe decidirse con una tabla por experiencia y franja: consultas útiles, reservas celebradas, ingreso, margen, incidencias y carga de trabajo. Si Social o Together generan interés pero requieren demasiado montaje o no encajan en la autorización, se ajusta el formato o se descartan. Si una ocasión consigue reservas con margen y una operación consistente, se refuerzan su fotografía, su página y su captación.
 
 La propuesta convierte una lista de posibilidades del local en una oferta concreta, una forma de reservar y una operación medible. El crecimiento se construye confirmando qué quiere contratar la gente y qué puede ejecutar Diverdino con calidad y margen.
+
+## 19. Prioridad comercial y canales confirmados en la revisión
+
+La marca se mantiene amplia. Los cumpleaños infantiles son la puerta de entrada principal y reciben el protagonismo de portada, la primera experiencia y la mayor parte del contenido inicial. Las reuniones familiares y quedadas de amigos muestran la misma ventaja: un lugar para estar juntos que también ofrece juego para los peques. Cenas, charlas, talleres y 16/18 son recorridos complementarios, sujetos a las condiciones del uso elegido. No se promete un servicio de cuidado o animación por el mero alquiler.
+
+Propuesta editorial inicial: ocho de doce piezas centradas en cumpleaños infantiles o familias con peques; dos sobre reuniones de familia/amigos y dos sobre otras posibilidades del local. Es una decisión de prueba, no un dato histórico ni una previsión de demanda. Revisar consultas, reservas y margen por ocasión antes de ampliar presupuesto.
+
+Instagram y Facebook mantendrán carruseles de organización, instalaciones y celebraciones. TikTok añadirá vídeo vertical que muestre el recorrido del espacio, preparación de una mesa y posibilidades de juego. Grabar con material real del local, planos de instalaciones y personas autorizadas; no sustituir pruebas reales por renders de reforma. Reutilizar el montaje original del vídeo para Reels cuando proceda, adaptando formato, texto y música a cada canal.
+
+Shifter es la agenda actual. Identificar la app exacta y sus opciones antes de decidir puente, sincronización o migración. Unificar todas las reservas en el registro central cuando entre en servicio el motor; durante transición no ofrecer confirmación automática basándose en una exportación desactualizada. La ficha vigente de negocio y tarifas está en [decision-actualizada.md](decision-actualizada.md).

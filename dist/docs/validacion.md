@@ -6,7 +6,9 @@ Se utilizó el navegador integrado de Codex mediante CUA/IAB, sin recurrir a un 
 
 Se verificaron tamaños CSS de escritorio **1536 × 1024** y móvil **390 × 844**. El proveedor de capturas del IAB devuelve imágenes de su superficie visible (por ejemplo 1521 × 856 para escritorio), por lo que no permite una comparación de píxel exacto a la resolución nativa del concepto 1536 × 1024. Se inspeccionaron la vista disponible y el diseño con sus dimensiones CSS; esta limitación no se presenta como una verificación de píxel exacto.
 
-## Recorrido probado
+## Recorrido probado en la primera versión
+
+Los importes de esta tabla corresponden a la versión inicial y al cartel anterior. La revisión posterior de la propiedad fija limpieza 25 €, hora extra 20 €, aforo 75 y calendario actual Shifter. Las comprobaciones de la revisión vigente se añaden al final de este documento.
 
 | Comprobación | Resultado observado |
 |---|---|
@@ -57,3 +59,20 @@ El diseño se ha contrastado con sus referencias para verificar composición, te
 ## Pendiente de producción
 
 Motor servidor con exclusión de intervalos; cuentas y autorización de calendario, pagos y WhatsApp; revisión de identidad y disponibilidad del nombre; maestros de marca e impresión; fotografías del espacio real y condiciones comerciales cerradas. La disponibilidad de esta demo no representa disponibilidad real y su almacenamiento local no resuelve concurrencia entre clientes.
+
+## Revisión vigente: marca amplia y prioridad infantil
+
+Se revisaron portada, formulario, panel y propuesta tras las últimas instrucciones. La referencia final es `brand/concepts/portada-familiar.png`, inspeccionada junto con `portada-familiar-escritorio.jpg` mediante `view_image`. El titular, párrafo, acciones y distribución se corresponden con esa dirección; la escena independiente conserva el dinosaurio completo, la tarta y los colores originales. La tipografía web y el encuadre mantienen las diferencias intencionadas descritas arriba. Las tarjetas dan mayor anchura a Kids en escritorio. Se añade un acceso específico para charlas, talleres y otros encuentros, sin limitar la marca a tres formatos.
+
+| Comprobación vigente | Resultado observado |
+|---|---|
+| Cumpleaños L–J mañana, limpieza y 75 personas | 80 + 25 = 105 €; prueba guardada en la agenda |
+| Límite de asistentes | 76 impide el envío mediante la validación del campo; máximo 75 |
+| Charla sábado mañana con limpieza | Referencia 120 + 25 = 145 €; guardada «Por revisar», con presupuesto pendiente |
+| Persistencia en panel | Aparecen el cumpleaños de 75 personas y la charla de 40; una sola reserva demo activa |
+| Acceso «Cuéntanos tu idea» | Abre el formulario seleccionando «Otro encuentro» |
+| Calendario actual y canales | Panel identifica Shifter; las conexiones siguen pendientes; TikTok tiene borrador de guion |
+| Móvil vigente | Portada, panel y propuesta a 390 × 844 CSS; ancho de contenido 375 px, sin desbordamiento de página |
+| Consola vigente | Sin errores ni avisos capturados en los recorridos de revisión |
+
+Capturas guardadas fuera del repositorio en `C:/Users/vmateu/.codex/visualizations/2026/10/14/01a13a4b-0ffb-7f22-a821-2683edff9d58/`: `portada-familiar-escritorio.jpg`, `portada-familiar-movil.jpg`, `reservas-movil-v2.jpg`, `panel-movil-v2.jpg`, `propuesta-movil-v2.jpg`. Las capturas pueden corresponder a un tramo visible y no equivalen a una auditoría de todas las combinaciones de navegador. No se conectó ni modificó Shifter.

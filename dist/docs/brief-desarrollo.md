@@ -21,7 +21,7 @@ La instrucción de color es conservar la paleta original, con un enfoque visual 
 
 La renovación mantiene estos cinco colores y llega por tipografía, composición, fotografía y proporción de color. Cada estado necesita texto o icono además de color. Las combinaciones finales deben superar las comprobaciones de contraste elegidas para el sitio.
 
-Los importes proceden del **cartel aportado directamente por la propiedad el 14/10/2026**. Se respetan sus valores. Tratamiento fiscal, festivos/vísperas, señal y posible fianza, obligatoriedad de limpieza, horas extra y aplicación del día completo se cierran antes de activar cobros.
+Los importes vigentes proceden de la **confirmación escrita posterior de la propiedad el 14/10/2026**, que sustituye al cartel anterior: limpieza 25 €, hora extra 20 €, reserva 20 €; aforo 75 personas entre niños y adultos. Shifter es el calendario actual. Instagram, Facebook y TikTok son los canales actuales. Se respetan sus valores. Tratamiento fiscal, festivos/vísperas, señal y posible fianza, obligatoriedad de limpieza, horas extra y aplicación del día completo se cierran antes de activar cobros.
 
 La estrategia y la especificación operativa se desarrollan en [estrategia.md](estrategia.md) y [operaciones.md](operaciones.md). La investigación de mercado está en [competencia.md](competencia.md).
 
@@ -32,7 +32,7 @@ La estrategia y la especificación operativa se desarrollan en [estrategia.md](e
 La demostración se plantea como tres páginas estáticas, sin proceso de compilación obligatorio para su uso:
 
 - `index.html`: propuesta comercial, experiencias, espacio, tarifas de referencia y simulador de consulta/reserva.
-- `panel.html`: demostración de agenda, reservas, clientes ficticios, marketing y conexiones.
+- `panel.html`: demostración de agenda, reservas, clientes anónimos, marketing y conexiones.
 - `propuesta.html`: acceso a la propuesta empresarial y sus documentos descargables.
 
 El entorno de entrega debe permitir abrir las páginas, recorrer los enlaces y comprobar los estados desde escritorio y móvil. Si se comparte mediante hosting, será privado y accesible al propietario según la configuración de entrega; no se considera por ello un sistema comercial en producción.
@@ -47,10 +47,10 @@ El entorno de entrega debe permitir abrir las páginas, recorrer los enlaces y c
 | Solapamientos locales | Evita repetir la franja en el mismo almacenamiento del navegador; día completo se cruza con mañana/tarde | No garantiza exclusión entre usuarios, dispositivos, navegadores ni ventanas concurrentes |
 | Persistencia | Conserva simulaciones mediante `localStorage` cuando el navegador lo permite | No es una base de datos compartida, copia de seguridad ni historial comercial |
 | Señal de 20 € | Representación simulada del importe «reserva» del cartel | No hay cargo; si se descuenta del total, es un supuesto de simulación pendiente de confirmar |
-| Limpieza de 20 € | Representación del importe del cartel como extra o regla ilustrativa | Su obligatoriedad debe confirmarse y configurarse antes de contratar |
+| Limpieza de 25 € | Representación del importe del cartel como extra o regla ilustrativa | Su obligatoriedad debe confirmarse y configurarse antes de contratar |
 | Social | Se registra siempre como solicitud pendiente de revisión | No se confirma automáticamente la actividad ni una reserva |
 | Panel de reservas | Lista registros de ejemplo y simulaciones locales, con filtros y cancelación demo | No modifica reservas reales ni devuelve pagos |
-| Calendario del panel | Permite visualizar ocupación de la demostración | No está conectado a Google Calendar |
+| Calendario del panel | Permite visualizar ocupación de la demostración | No está conectado a Shifter ni a otro calendario real |
 | Clientes | Datos ficticios para mostrar el trabajo de atención | No se introducen datos personales reales |
 | Marketing | Textos y piezas de ejemplo revisables | No publica ni envía comunicaciones |
 | Conexiones | Muestra el estado inactivo y el recorrido previsto | No existen APIs autorizadas, credenciales ni sincronización operativa |
@@ -165,7 +165,7 @@ Para R01/R02/R06 conviene usar dos conexiones independientes y una barrera de si
 
 | Integración | Alcance inicial | Aceptación y tratamiento de fallos |
 |---|---|---|
-| Google Calendar | Calendario del negocio como vista sincronizada y fuente de bloqueos con reglas definidas | Alta/actualización/cancelación trazable; reintentos sin duplicados; alerta de desconexión y reconciliación |
+| Shifter / puente de calendario por verificar | Identificar producto, exportación y capacidad de sincronización; Google Calendar sería una alternativa de puente, no la agenda actual confirmada | Alta/actualización/cancelación trazable; reintentos sin duplicados; alerta de desconexión y reconciliación |
 | Pagos | Señal mediante cuenta propia del negocio | Verificación de firma, importe/moneda y referencia; idempotencia; conciliación y devolución probadas |
 | Correo | Confirmación y guía de reserva si se implementa | Estado de envío/entrega según proveedor, reintentos y tarea si falla |
 | WhatsApp manual | Enlace público y atención por el equipo | Mensaje no equivale a reserva; toda confirmación se registra en el panel |

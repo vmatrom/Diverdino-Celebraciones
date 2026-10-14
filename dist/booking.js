@@ -20,11 +20,11 @@ form.addEventListener('submit',event=>{
   const q=quote(v.date,v.slot,v.cleaning,v.holiday);latest={...v,...q};
   addText('h4',review?'Podemos preparar una solicitud demo.':'Hay hueco en tu agenda demo.',result);
   addText('p',`${formatDate(v.date)} · ${SLOTS[v.slot]} · ${slotHours(v.date,v.slot,v.holiday)} · ${v.guests} personas`,result);
-  if(review){addText('p','Esta experiencia requiere revisión y presupuesto. La tarifa de alquiler del cartel no confirma el precio de un evento Social o Together.',result,'fineprint');}
-  else{
+  if(review){addText('p','El alquiler tiene esta tarifa base. Revisaremos el montaje y las condiciones de tu actividad antes de confirmar. Comida, decoración y animación no se presuponen incluidas.',result,'fineprint');}
+  {
     const dl=document.createElement('dl');dl.className='quote';
     for(const [label,value]of [['Alquiler de referencia',money(q.base)],['Limpieza elegida',money(q.cleaning)],['Total de referencia',money(q.total)]]){addText('dt',label,dl);addText('dd',value,dl);}result.append(dl);
-    addText('p','Reserva indicada en cartel: 20 €. Su descuento del total y las condiciones se confirmarán con el negocio. En esta demo no se paga ni se calcula saldo pendiente.',result,'fineprint');
+    addText('p','Para confirmar el día: 20 €. El tratamiento de ese importe y las condiciones se acordarán con el negocio. En esta demo no se paga ni se calcula saldo pendiente. Hora extra: 20 €/h, sujeta a aprobación.',result,'fineprint');
   }
   const button=addText('button',review?'Guardar solicitud de prueba':'Crear reserva de prueba',result,'btn full');button.type='button';button.addEventListener('click',createDemo);
 });

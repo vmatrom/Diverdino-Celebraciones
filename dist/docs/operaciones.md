@@ -4,11 +4,17 @@ Propuesta operativa y técnica contrastada el **14 de octubre de 2026**. Especif
 
 ## Decisión recomendada
 
-Crear una web propia con identidad visual potente y un **panel Gran Plan para Diverdino** que concentre agenda, reservas, clientes, señales, tareas del evento y comunicaciones. El registro central de reservas será la autoridad de disponibilidad. Google Calendar servirá como calendario conectado y vista móvil; Stripe procesará la señal; WhatsApp Business Platform permitirá comunicaciones autorizadas. Las herramientas nativas de Meta seguirán disponibles para las funciones avanzadas de publicidad y redes.
+Crear una web propia con identidad visual potente y un **panel Gran Plan para Diverdino** que concentre agenda, reservas, clientes, señales, tareas del evento y comunicaciones. El registro central de reservas será la autoridad de disponibilidad. El calendario actual es Shifter; se evaluará su conexión o migración tras identificar la aplicación. Google Calendar queda como puente opcional por comprobar; Stripe procesará la señal; WhatsApp Business Platform permitirá comunicaciones autorizadas. Las herramientas nativas de Meta seguirán disponibles para las funciones avanzadas de publicidad y redes.
 
 Esta combinación permite que la marca y el recorrido de compra sean propios sin desarrollar un procesador de pagos o depender de automatizaciones de WhatsApp no oficiales. “Un único punto” debe significar una ficha de evento y una agenda compartida, con estados de conexión reales. No se debe prometer que todas las funciones de Google, Meta y Stripe estarán reproducidas dentro del panel.
 
 **Supuesto de diseño por confirmar:** el local se alquila en exclusiva y representa un único recurso reservable. Si se comercializan zonas simultáneas o actividades abiertas, hay que redefinir capacidad, recursos y reglas antes de programar la venta.
+
+## Base actual de la operación
+
+La propiedad confirma 75 personas entre niños y adultos; limpieza 25 €, hora extra 20 €/h e importe para confirmar el día 20 €. Las tarifas de alquiler vigentes son 80/100 € de lunes a jueves, 120/130 € viernes–domingo y festivos, y 190 € el día completo, con los horarios de la ficha [decision-actualizada.md](decision-actualizada.md). Esa confirmación escrita prevalece sobre el cartel anterior.
+
+Shifter es la agenda que ya utiliza el negocio. Hay productos distintos con nombres parecidos; no se afirma una API ni una sincronización bidireccional hasta identificarlo. La aplicación de LRHSoft anuncia exportación a Google Calendar en su [ficha oficial](https://play.google.com/store/apps/details?id=com.lrhsoft.shiftercalendar); existe también un [Shifter de iDevBand](https://play.google.com/store/apps/details?id=com.idevband.shiftcalendar). Estas son opciones a identificar, no una conclusión sobre vuestra cuenta. Una exportación puntual no equivale a disponibilidad en tiempo real. Hasta completar una conexión fiable, las solicitudes requieren comprobación humana.
 
 ## El recorrido de una reserva
 
@@ -28,6 +34,8 @@ Para eventos especiales, cenas o celebraciones de adolescentes que necesiten rev
 La comprobación debe ejecutarse en el servidor y reforzarse en la base de datos, por ejemplo con restricciones de exclusión de rangos en PostgreSQL. La documentación oficial muestra este mecanismo para impedir reservas coincidentes. No basta con desactivar un botón en la web. [Restricciones de rangos en PostgreSQL](https://www.postgresql.org/docs/current/rangetypes.html#RANGETYPES-CONSTRAINT).
 
 La garantía requiere que **todas las reservas y bloqueos comerciales se creen en el motor central**, incluso las recibidas por teléfono o WhatsApp. Google Calendar no debe convertirse en una segunda caja de reservas independiente. Consultar `freeBusy` y crear después un evento son operaciones separadas: entre ambas puede entrar otra petición. Esa es una inferencia de arquitectura a partir de las operaciones disponibles, no una función anti-solape que Google prometa.
+
+### Opción técnica si se acuerda un puente con Google Calendar
 
 Google permite consultar intervalos ocupados y crear eventos con autorización. Se conectará un calendario específico del negocio, con el acceso mínimo necesario. Los bloqueos externos se incorporarán con reglas claras, sin importar datos personales al calendario público. Si se permiten altas manuales fuera del panel, se necesita reconciliación y revisión del conflicto; no puede anunciarse una garantía absoluta de confirmación instantánea entre dos sistemas que aceptan cambios por separado. [Consulta freeBusy](https://developers.google.com/workspace/calendar/api/v3/reference/freebusy/query), [crear eventos](https://developers.google.com/workspace/calendar/api/v3/reference/events/insert).
 
@@ -62,6 +70,8 @@ La política vigente exige permiso para los contactos posteriores. Para iniciar 
 Automatizaciones útiles, una vez activadas: confirmación de reserva, recordatorio de saldo, información de acceso, recordatorio previo y petición de valoración posterior. Las campañas de cumpleaños siguientes o descuentos exigen su propio tratamiento comercial; no se consideran incluidas por haber reservado una vez. Las plantillas mostradas en un prototipo serán borradores, pendientes de aprobación y configuración.
 
 Para Facebook e Instagram se recomienda empezar con **Meta Business Suite**: planificación de publicaciones e historias, atención de mensajes e información de resultados. El panel Gran Plan organizará los contenidos y enlazará cada campaña con solicitudes/reservas. La publicación directa desde software propio se valorará como una integración adicional según permisos y funciones realmente disponibles, sin prometer todos los formatos. [Formación oficial de Meta Business Suite](https://www.facebookblueprint.com/student/path/248709-meta-business-suite-customer-connection).
+
+TikTok es también un canal actual del negocio. El panel incluye planificación y guiones; la publicación directa se activaría solo con app y permisos aprobados. TikTok requiere autorización del perfil y revisión de la integración para retirar sus límites de visibilidad. [Documentación oficial de Content Posting API](https://developers.tiktok.com/docs/en/content-posting-api-get-started).
 
 ## Prototipo, pruebas y producción
 
