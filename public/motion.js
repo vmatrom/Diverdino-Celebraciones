@@ -25,7 +25,7 @@ animate(document.querySelector('.hero-art'),[{opacity:0,clipPath:'inset(8% 3% 8%
 if('IntersectionObserver' in window){
  const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(!entry.isIntersecting)continue;animate(entry.target,[{opacity:0,transform:'translateY(30px)'},{opacity:1,transform:'translateY(0)'}],{duration:700,delay:Number(entry.target.dataset.motionDelay||0)});observer.unobserve(entry.target);}},{threshold:.12});
  document.querySelectorAll('.experiences article').forEach((el,i)=>el.dataset.motionDelay=String(i*80));
- document.querySelectorAll('.section-intro,.experiences article,.open-plans,.booking-story,.booking-widget,.proposal-section-heading,.proposal-poster-gallery figure,.proposal-document-list>a').forEach(el=>observer.observe(el));
+ document.querySelectorAll('.section-intro,.experiences article,.facility-grid article,.included-layout,.rate-card,.location-invitation,.open-plans,.booking-story,.booking-widget,.proposal-section-heading,.proposal-poster-gallery figure,.proposal-document-list>a').forEach(el=>observer.observe(el));
 }
 document.querySelectorAll('details').forEach(detail=>detail.addEventListener('toggle',()=>{if(detail.open)[...detail.children].filter(el=>el.tagName!=='SUMMARY').forEach(el=>animate(el,[{opacity:0,transform:'translateY(-8px)'},{opacity:1,transform:'translateY(0)'}],{duration:300}));}));
 const result=document.querySelector('#booking-result');
@@ -34,9 +34,9 @@ if(result)new MutationObserver(()=>{if(result.childElementCount)animate(result,[
 const sceneImage=document.querySelector('#hero-scene'),canvas=document.querySelector('#hero-transition');
 const buttons=[...document.querySelectorAll('.scene-picker button[data-scene]')];
 const scenes=[
- {src:'assets/dino-bienvenida.webp',alt:'Dino recibe a las familias en la entrada de Diverdino',label:'¡Te estábamos esperando!',shader:'iris'},
- {src:'assets/zona-mesas.webp',alt:'Zona de mesas del local Diverdino para reuniones y celebraciones',label:'Un espacio para compartir',shader:'ripple'},
- {src:'assets/zona-juego.webp',alt:'Zona de juego y rocódromo del local Diverdino',label:'El mismo lugar. Mil formas de disfrutar',shader:'iris'}
+ {src:'assets/dino-invitacion.webp',alt:'Ilustración de Dino con una invitación de cumpleaños',label:'Tu próxima aventura empieza aquí.',shader:'iris'},
+ {src:'assets/familia-fiesta.webp',alt:'Ilustración de una celebración familiar con Dino y globos',label:'El mejor plan: estar juntos.',shader:'ripple'},
+ {src:'assets/karaoke-celebracion.webp',alt:'Ilustración de una invitación y un micrófono de karaoke',label:'Tus 16. Tus 18. Tu manera de celebrar.',shader:'iris'}
 ];
 if(sceneImage&&canvas&&buttons.length){
  let selected=0,busy=false,renderer=null,contextFailed=false;

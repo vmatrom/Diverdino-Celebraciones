@@ -3,12 +3,16 @@ import {readFile,readdir} from 'node:fs/promises';
 import path from 'node:path';
 const html=await readFile('public/index.html','utf8');
 assert.ok(html.includes('Diverdino'));
-assert.ok(!/Concepto creativo|propuesta\.html|Diseñada para|Octubre 2026|#4fc3dc<|demo|360/i.test(html),'No production/proposal notes visible');
+assert.ok(!/Concepto creativo|propuesta\.html|Diseñada para|Octubre 2026|#4fc3dc<|\bdemo\b|\b360\b/i.test(html),'No production/proposal notes visible');
 assert.ok(html.includes('https://www.tiktok.com/@diverdino44'));
 assert.ok(html.includes('sin posibilidad de hacer fuego'));
 assert.equal((html.match(/<h1[ >]/g)||[]).length,1);
 const schema=JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
 assert.equal(schema['@graph'][0].telephone,'+34644580495');assert.equal(schema['@graph'][0].address.postalCode,'03202');
 for(const match of html.matchAll(/(?:src|href)="([^"#]+)"/g)){const url=match[1];if(/^(https?:|tel:|data:)/.test(url))continue;assert.ok((await readFile(path.join('public',url))).length,'Local asset '+url);}
-for(const name of ['hero-familiar.webp','social-v2.webp','together-v2.webp'])assert.ok(!html.includes(name),'Only real material displayed');
+for(const name of ['dino-bienvenida.webp','zona-juego.webp','zona-mesas.webp','detalle-local.webp'])assert.ok(!html.includes(name),'Replaced the main photos with the new illustrations');
+for(const name of ['dino-invitacion.webp','familia-fiesta.webp','karaoke-celebracion.webp'])assert.ok(html.includes(name),'Illustration used: '+name);
+for(const id of ['servicios','tarifas','contacto'])assert.ok(html.includes('id="'+id+'"'),'Section '+id);
+assert.ok(html.includes('href="gestion.html" class="team-access"'),'Visible private entrance');
+const access=await readFile('public/gestion.html','utf8');assert.ok(access.includes('/signin-with-chatgpt?return_to=%2Fadmin" target="_top"'),'Native sign-in uses top navigation');
 console.log('Public content, structured data, links and local assets checked.');

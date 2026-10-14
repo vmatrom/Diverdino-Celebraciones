@@ -8,6 +8,8 @@ async function request(path,data,options={}){const response=await fetch(base+pat
 function check(name,actual,expected){assert.deepEqual(actual,expected,name);passed++;console.log('PASS '+name);}
 const unique=Date.now().toString(36).toUpperCase(),code='QA-'+unique,date='2034-06-08',next='2034-06-09';
 check('Anonymous admin denied',(await fetch(base+'/api/admin/state')).status,401);
+const entrance=await fetch(base+'/admin',{redirect:'manual'});check('Anonymous panel leads to login entrance',entrance.status,302);check('Panel login destination is correct',new URL(entrance.headers.get('location')).pathname,'/gestion.html');
+check('Public login entrance loads',(await fetch(base+'/gestion.html')).status,200);
 check('Forged identity headers stripped',(await fetch(base+'/api/admin/state',{headers:{'oai-authenticated-user-id':'spoof','oai-authenticated-user-email':'seedy@sites.test'}})).status,401);
 check('CSRF rejected',(await request('/api/admin/profile',{name:'test'},{headers:{Origin:'https://untrusted.invalid'}})).status,403);
 const old=await request('/api/admin/state');check('Authenticated admin reads state',old.status,200);

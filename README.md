@@ -8,13 +8,15 @@ Web de celebraciones de Elche y portal privado de administración.
 
 ## Estructura y publicación
 
-`public/` contiene la web final con material real aportado por el negocio. `scripts/build-pages.mjs` prepara únicamente el contenido público para GitHub Pages. El workflow `pages.yml` lo publica al actualizar `main`. No copia bases de datos, archivos de clientes, claves, formularios del panel ni su contenido.
+`public/` contiene la web final con tres ilustraciones originales creadas para Diverdino: Dino con invitación, celebración familiar y karaoke. Los originales y sus instrucciones están en `content/artwork/`. `scripts/build-pages.mjs` prepara únicamente el contenido público para GitHub Pages. El workflow `pages.yml` lo publica al actualizar `main`. No copia bases de datos, archivos de clientes, claves, formularios del panel ni su contenido.
 
 `build/sites-worker.ts` conserva la integración oficial de Sites y enruta el backend de `lib/backend.ts`. D1 guarda reservas, ocupación, códigos, contactos adultos, contenido editorial, tareas, estadísticas agregadas y auditoría. R2 guarda las fotos y vídeos subidos desde administración. Las migraciones están en `drizzle/`.
 
 Pages es alojamiento estático: calcula precios y prepara consultas por WhatsApp. La agenda, el acceso, la biblioteca y los datos privados se ejecutan en el servidor de Sites. En ese servidor, el formulario consulta los turnos registrados antes de preparar la consulta. Una solicitud por WhatsApp no confirma ni bloquea la fecha.
 
 ## Acceso y configuración
+
+Entra desde «Área privada» en la cabecera o `gestion.html`. Pages también publica las entradas `/admin/`, `/panel/`, `admin.html` y `panel.html`, que llevan a la página de acceso. La autenticación se abre mediante navegación superior hacia el servidor; no usa iframes ni contraseñas en el frontend. Una cuenta identificada sin rol recibe una pantalla para revisar su acceso, sin exponer datos del panel.
 
 El inicio de sesión utiliza la identidad de ChatGPT proporcionada por Sites. Cada ruta administrativa valida la identidad y el rol en el servidor. `ADMIN_EMAIL`, configurado como secreto en el alojamiento, permite registrar el identificador estable de la cuenta propietaria como administrador. No hay contraseñas predeterminadas ni secretos en el repositorio.
 
@@ -54,7 +56,7 @@ Transiciones WebGL de iris y ondas adaptadas de HyperFrames con licencia Apache 
 
 Referencias: https://github.com/heygen-com/hyperframes, https://github.com/appssemble/appstore-card-transition y https://github.com/HeroTransitions/Hero. Los dos últimos inspiran la interacción; no se incorporan bibliotecas iOS. Roket inspira la separación por celebraciones e instalaciones; no se copian textos ni servicios ajenos.
 
-Las imágenes de entrada, mesas, juegos y detalle se extrajeron de los vídeos originales de `Material/` y se optimizaron a WebP. No se inventaron instalaciones ni se sustituyeron por espacios generados. Los originales se conservan en el proyecto local.
+Las imágenes principales son ilustraciones 3D y sus textos alternativos lo indican. No representan fotografías de instalaciones reales. Los materiales fotográficos anteriores se conservan, pero ya no se presentan en la portada ni en las tarjetas.
 
 ## SEO y comprensión por asistentes
 
