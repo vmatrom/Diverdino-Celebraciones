@@ -1,0 +1,35 @@
+name: Validate private backend
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npx tsc --noEmit
+      - run: npm run build
+      - name: Prepare isolated local database
+        run: |
+          printf 'ADMIN_EMAIL=seedy@sites.test\n' > .dev.vars
+          for migration in drizzle/*.sql; do
+            node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file "$migration"
+          done
+      - name: Test backend end to end
+        run: |
+          node scripts/run-framework.mjs dev --hostname 127.0.0.1 --port 43167 > /tmp/diverdino-tests.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for i in $(seq 1 60); do
+            if curl --silent --fail http://127.0.0.1:43167/index.html > /dev/null; then break; fi
+            sleep 1
+          done
+          node scripts/test-backend.mjs
