@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#4fc3dc">
+  <title>Estudio de gestión · gran plan.</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="panel.css">
+  <script type="module" src="panel.js"></script>
+</head>
+<body class="panel-page">
+  <svg class="icon-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4m8-4v4M3 9h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><path d="M16 21v-3a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v3m20 0v-3a4 4 0 0 0-3-3.87M15 3.13a4 4 0 0 1 0 7.75"/><circle cx="9" cy="7" r="4"/></symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 10 17-6v16L3 14v-4Zm5 6 2 6H6l-2-7m16-7 2-1m-2 9 2 1"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="m10 13 4-4m-7 8-1 1a4.24 4.24 0 0 1-6-6l5-5a4.24 4.24 0 0 1 6 0m2 0 1-1a4.24 4.24 0 0 1 6 6l-5 5a4.24 4.24 0 0 1-6 0" transform="translate(2 0)"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 3h7v7m0-7L10 14m1-11H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 11v6m0-10v.1"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8m-4-4v8"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></symbol>
+  </defs></svg>
+  <a class="skip-panel" href="#panel-main">Ir al contenido</a>
+  <div class="wrap panel-shell">
+    <header class="panel-header">
+      <a href="index.html" class="wordmark" aria-label="gran plan. Volver a la web">gran plan<span>.</span></a>
+      <span class="panel-header-label">Estudio de gestión</span>
+      <a href="index.html" class="back-web"><svg class="icon"><use href="#i-external"/></svg>Volver a la web</a>
+    </header>
+    <div class="notice panel-demo"><svg class="icon"><use href="#i-info"/></svg><p><strong>Modo demostración.</strong> Datos de prueba guardados en este navegador. Sin reservas, cobros ni conexiones reales.</p></div>
+    <nav class="panel-tabs" role="tablist" aria-label="Secciones del estudio">
+      <button id="tab-agenda" class="panel-tab" role="tab" aria-selected="true" aria-controls="view-agenda" data-tab="agenda"><svg class="icon"><use href="#i-calendar"/></svg>Agenda</button>
+      <button id="tab-clientes" class="panel-tab" role="tab" aria-selected="false" aria-controls="view-clientes" tabindex="-1" data-tab="clientes"><svg class="icon"><use href="#i-people"/></svg>Clientes</button>
+      <button id="tab-marketing" class="panel-tab" role="tab" aria-selected="false" aria-controls="view-marketing" tabindex="-1" data-tab="marketing"><svg class="icon"><use href="#i-megaphone"/></svg>Marketing</button>
+      <button id="tab-conexiones" class="panel-tab" role="tab" aria-selected="false" aria-controls="view-conexiones" tabindex="-1" data-tab="conexiones"><svg class="icon"><use href="#i-link"/></svg>Conexiones</button>
+    </nav>
+    <main id="panel-main">
+      <section id="view-agenda" class="panel-view" role="tabpanel" aria-labelledby="tab-agenda">
+        <div class="panel-intro"><h1>Todo listo<br>para celebrar<span>.</span></h1><a class="btn panel-primary" href="index.html#reservar"><svg class="icon"><use href="#i-plus"/></svg>Nueva reserva demo</a></div>
+        <div class="panel-stats">
+          <div class="panel-stat"><span class="stat-symbol stat-turquoise"><svg class="icon"><use href="#i-calendar"/></svg></span><div><p>Reservas demo activas</p><strong id="stat-bookings">0</strong></div></div>
+          <div class="panel-stat"><span class="stat-symbol stat-yellow" aria-hidden="true">€</span><div><p>Señales simuladas</p><strong id="stat-deposits">0 €</strong><small>No son cobros reales</small></div></div>
+          <div class="panel-stat"><span class="stat-symbol stat-pink"><svg class="icon"><use href="#i-link"/></svg></span><div><p>Conexiones reales</p><strong>0/4</strong></div></div>
+        </div>
+        <div class="agenda-layout">
+          <section class="panel-box bookings-box" aria-labelledby="bookings-title">
+            <div class="box-heading"><h2 id="bookings-title">Agenda de celebraciones</h2><button class="text-action export-action" id="export-csv"><svg class="icon"><use href="#i-download"/></svg>Exportar CSV</button></div>
+            <div class="agenda-filters"><label for="status-filter">Mostrar <select id="status-filter"><option value="all">Todos los estados</option><option value="demo">Demo activas</option><option value="review">Por revisar</option><option value="cancelled">Canceladas</option></select></label><button class="date-filter" id="date-filter" hidden></button></div>
+            <div class="table-scroll"><table class="bookings-table"><caption class="sr-only">Reservas de demostración guardadas en este navegador</caption><thead><tr><th scope="col">Fecha</th><th scope="col">Celebración</th><th scope="col">Turno</th><th scope="col">Estado</th><th scope="col"><span class="sr-only">Acciones</span></th></tr></thead><tbody id="booking-rows"></tbody></table></div>
+            <div class="agenda-empty" id="agenda-empty"><svg class="empty-calendar"><use href="#i-calendar"/></svg><h3>Tu agenda empieza con la primera celebración.</h3><p>Prueba una reserva desde la web y aparecerá aquí.</p><a class="inline-link" href="index.html#reservar">Crear mi primera reserva demo<svg class="icon"><use href="#i-arrow"/></svg></a></div>
+          </section>
+          <aside class="agenda-aside">
+            <section class="panel-box calendar-box" aria-labelledby="calendar-title"><div class="calendar-heading"><h2 id="calendar-title">Calendario</h2><div class="month-buttons"><button id="month-prev" aria-label="Mes anterior"><svg class="icon rotate"><use href="#i-chevron"/></svg></button><button id="month-today">Hoy</button><button id="month-next" aria-label="Mes siguiente"><svg class="icon"><use href="#i-chevron"/></svg></button></div></div><p id="calendar-month" class="calendar-month" aria-live="polite"></p><div class="weekdays" aria-hidden="true"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div><div id="calendar-grid" class="calendar-grid" aria-label="Selecciona una fecha para filtrar la agenda"></div><p class="calendar-legend"><span class="legend-dot"></span>Ocupación demo · pulsa un día para filtrar</p></section>
+            <section class="panel-box connection-summary" aria-labelledby="summary-title"><h2 id="summary-title">Tu negocio, conectado</h2><ul><li><span>Google Calendar</span><span class="pending">Pendiente</span></li><li><span>WhatsApp</span><span class="pending">Pendiente</span></li><li><span>Pagos</span><span class="pending">Pendiente</span></li><li><span>Redes sociales</span><span class="pending">Pendiente</span></li></ul><button class="inline-link" data-open-tab="conexiones">Ver qué falta para conectar<svg class="icon"><use href="#i-arrow"/></svg></button></section>
+          </aside>
+        </div>
+        <section class="launch-route"><h2>Ruta de lanzamiento</h2><ol><li><span class="route-number">1</span><div><h3>Validar tarifas y condiciones</h3><p>Servicios, turnos, aforo y políticas de reserva.</p></div></li><li><span class="route-number">2</span><div><h3>Conectar calendario y pagos</h3><p>Disponibilidad real y señales verificadas.</p></div></li><li><span class="route-number">3</span><div><h3>Publicar y activar campañas</h3><p>Una marca nueva. Todos tus planes.</p></div></li></ol></section>
+      </section>
+      <section id="view-clientes" class="panel-view" role="tabpanel" aria-labelledby="tab-clientes" hidden><div class="view-heading"><h1>Cada celebración,<br>una buena relación<span>.</span></h1><p>El futuro historial de clientes, con el cuidado que merece.</p></div><div class="panel-box privacy-state"><span class="privacy-icon"><svg class="icon"><use href="#i-people"/></svg></span><h2>En esta demo, las personas son anónimas.</h2><p>Las reservas de prueba no piden nombres, teléfonos ni correos. Aquí puedes explorar la gestión sin recopilar contactos.</p><p>En la versión real, cada ficha reunirá sus reservas, conversaciones y preferencias autorizadas, con acceso limitado al equipo.</p><a class="btn btn-secondary" href="index.html#reservar">Probar una celebración anónima</a></div></section>
+      <section id="view-marketing" class="panel-view" role="tabpanel" aria-labelledby="tab-marketing" hidden><div class="view-heading"><h1>Planes que<br>dan que hablar<span>.</span></h1><p>Cuatro borradores para empezar. Copia, adapta y publica cuando tú decidas.</p></div><div class="marketing-note"><svg class="icon"><use href="#i-info"/></svg><p>Material de propuesta. No se publica automáticamente ni hay campañas activas.</p></div><div class="marketing-grid" id="marketing-grid"></div><div class="social-launch"><p>Prepara tus publicaciones en las herramientas de cada red.</p><a class="inline-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Abrir Instagram<svg class="icon"><use href="#i-external"/></svg></a><a class="inline-link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Abrir Facebook<svg class="icon"><use href="#i-external"/></svg></a></div></section>
+      <section id="view-conexiones" class="panel-view" role="tabpanel" aria-labelledby="tab-conexiones" hidden><div class="view-heading"><h1>Un punto.<br>Todo en marcha<span>.</span></h1><p>Esta es la hoja de ruta para conectar el negocio. Ahora hay 0 de 4 conexiones reales activas.</p></div><div class="connections-grid"><article class="panel-box connection-card"><div class="connection-card-heading"><h2>Google Calendar</h2><span class="pending">Sin conectar</span></div><p>Consultar bloqueos y reflejar las reservas confirmadas en la agenda del local.</p><h3>Para activarlo</h3><p>Elegir calendario, autorizar el acceso y probar la sincronización. El motor de reservas central evitará los solapamientos.</p></article><article class="panel-box connection-card"><div class="connection-card-heading"><h2>WhatsApp</h2><span class="pending">Sin conectar</span></div><p>Atención al cliente, confirmaciones y recordatorios desde una bandeja compartida.</p><h3>Para activarlo</h3><p>Validar número y cuenta de empresa, permisos de contacto y plantillas en WhatsApp Business Platform.</p></article><article class="panel-box connection-card"><div class="connection-card-heading"><h2>Pagos</h2><span class="pending">Sin conectar</span></div><p>Cobrar la señal y asociar el pago verificado a cada reserva.</p><h3>Para activarlo</h3><p>Cuenta del negocio verificada, condiciones aprobadas y pruebas de cobro, caducidad y devolución.</p></article><article class="panel-box connection-card"><div class="connection-card-heading"><h2>Redes sociales</h2><span class="pending">Sin conectar</span></div><p>Organizar contenido y gestionar los perfiles reales de Facebook e Instagram.</p><h3>Para activarlo</h3><p>Vincular los activos del propietario, autorizar permisos y definir qué funciones se integran con Meta Business Suite.</p></article></div><div class="integration-guide"><div><h2>La conexión empieza con una buena base.</h2><p>Arquitectura, condiciones, costes y pasos de activación en la propuesta de operaciones.</p></div><a class="btn btn-secondary" href="docs/operaciones.md" target="_blank" rel="noopener">Leer propuesta técnica<svg class="icon"><use href="#i-arrow"/></svg></a></div></section>
+    </main>
+    <footer class="panel-footer"><span>gran plan. · Estudio de gestión</span><span>Prototipo local · sin datos personales</span></footer>
+  </div>
+  <div class="panel-toast" id="panel-toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
