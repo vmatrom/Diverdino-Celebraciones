@@ -1,4 +1,4 @@
-@view-transition{navigation:auto}
+@view-transition{navigation:none}
 body{overflow-x:clip}
 :root{scroll-behavior:auto}
 @keyframes scene-page-in{from{clip-path:circle(0% at 88% 8%)}to{clip-path:circle(150% at 88% 8%)}}
