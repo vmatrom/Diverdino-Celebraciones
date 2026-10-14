@@ -1,5 +1,15 @@
 # Repositorios aportados: uso en el proyecto
 
+## Incorporación vigente: CodeX y HyperFrames
+
+Se revisaron [codex-team](https://github.com/codex-team), [su web](https://codex.so), [CodeX Docs](https://github.com/codex-team/codex.docs) y [CodeX Media](https://github.com/codex-team/codex.media). Se elige como referencia el patrón de [tarjetas de eventos de CodeX Media](https://github.com/codex-team/codex.media/blob/master/www/public/app/css/components/event-card.css): imagen de portada, borde fino, título breve y acción separada. Se adapta con CSS propio a las ocasiones del local, la paleta original, el Dino de Material y esquinas amplias. Es una adaptación visual; no se instala el CMS ni se traslada su código de servidor.
+
+De [HyperFrames](https://github.com/heygen-com/hyperframes) se incorporan fragment shaders de `sdf-iris` y `ripple-waves`, adaptados a un selector de imágenes WebGL en la portada. Fuente fijada al commit `d65eefad5ed351e9d36d2caeb6049878be0aba85`, archivos `packages/shader-transitions/src/shaders/common.ts` y `registry.ts`. La copia seleccionada, cambios y licencia Apache-2.0 del repositorio se incluyen en `site/dist/vendor/`. El motor de presentación es propio: dibuja únicamente durante los cambios solicitados por el visitante, con límite de resolución y retorno a imágenes estáticas si WebGL falla.
+
+Los titulares tienen entrada escalonada; las tarjetas aparecen al entrar en pantalla; el panel anima el cambio de pestaña. Se incluye transición circular entre páginas en navegadores con View Transitions. El contenido permanece disponible si falla JavaScript. `prefers-reduced-motion` desactiva estas animaciones y permite seguir seleccionando imágenes. No hay reproducción automática continua ni cambios de escena mientras el visitante lee.
+
+Se retiran «demo» y «360» del texto visible. El formulario comercial calcula el importe y abre una consulta de WhatsApp preparada, que el visitante decide enviar. No presenta disponibilidad automática ni genera reservas confirmadas. El panel identifica su agenda como local y conserva visibles las conexiones pendientes.
+
 Revisión del 14/10/2026. El texto aportado mezclaba recursos para construir webs y temas para cambiar la aplicación Codex. El objetivo aquí es mejorar la web del local; las decisiones de la propiedad sobre colores y público prevalecen sobre los presets externos.
 
 | Recurso verificado | Aplicación concreta |

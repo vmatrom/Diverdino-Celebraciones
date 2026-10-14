@@ -1,0 +1,7 @@
+HyperFrames selected shader source
+Copyright 2026 HeyGen, Inc.
+Source: https://github.com/heygen-com/hyperframes
+Commit: d65eefad5ed351e9d36d2caeb6049878be0aba85
+Paths: packages/shader-transitions/src/shaders/common.ts and registry.ts
+Adaptations by Diverdino project: standalone ESM shaders; selected sdf-iris and ripple-waves; iris edge ordering corrected.
+Web renderer, interface, scheduling and accessibility support are independent project code.

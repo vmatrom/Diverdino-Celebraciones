@@ -1,5 +1,7 @@
 # DIVERDINO · Brief de desarrollo y aceptación
 
+**Estado vigente de la interfaz:** el formulario público calcula el alquiler y prepara la consulta por WhatsApp. No guarda nuevas reservas desde la web ni afirma disponibilidad por leer apuntes locales. El panel conserva los registros locales anteriores como anotaciones, sin cobros. Las referencias posteriores al antiguo recorrido de creación local son antecedentes de desarrollo; el motor central sigue siendo el requisito para la confirmación automática. Se han retirado las etiquetas «demo» y «360» de las páginas y añadido la dirección editorial CodeX Media y transiciones HyperFrames descritas en `repositorios-diseno.md`.
+
 **Fecha:** 14 de octubre de 2026.  
 **Proyecto:** renovación de marca, web comercial, reservas y panel de gestión del local actual Diverdino, Elche.  
 **Naturaleza:** especificación de alcance para la demostración y el paso a producción. Este documento no acredita integraciones activas ni sustituye el acta de pruebas.

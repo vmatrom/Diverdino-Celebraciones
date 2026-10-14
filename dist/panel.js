@@ -1,11 +1,12 @@
+import { animatePanelSwap } from './motion.js';
 import { loadBookings, saveBookings, todayMadrid, formatDate, money, TYPES, SLOTS, available } from './data.js';
 
 const $ = (selector) => document.querySelector(selector);
 const state = { bookings: [], status: 'all', selectedDate: '', month: todayMadrid().slice(0, 7) };
 let toastTimer;
-const STATUS = { demo: 'Demo activa', review: 'Por revisar', cancelled: 'Cancelada' };
+const STATUS = { demo: 'Anotada', review: 'Por revisar', cancelled: 'Cancelada' };
 const campaigns = [
-  { title: 'TikTok · un cumple desde dentro', filename: 'tiktok-cumple.txt', copy: 'Guion vertical de 20 segundos: entrada del local → parque de bolas vacío → rocódromo y zona baby → mesa preparada.\nTexto: Un cumple para los peques. Un gran plan para toda la familia.\nCierre: Consulta tu fecha · 644 580 495.\nPropuesta para grabar con material real del espacio y personas autorizadas. No se publica desde esta demo.' },
+  { title: 'TikTok · un cumple desde dentro', filename: 'tiktok-cumple.txt', copy: 'Guion vertical de 20 segundos: entrada del local → parque de bolas vacío → rocódromo y zona baby → mesa preparada.\nTexto: Un cumple para los peques. Un gran plan para toda la familia.\nCierre: Consulta tu fecha · 644 580 495.\nPropuesta para grabar con material real del espacio y personas autorizadas. Publicación pendiente de preparar y revisar.' },
   { title: 'Diverdino Kids', image: 'assets/diverdino-kids.svg', original: 'assets/diverdino-kids.svg', filename: 'diverdino-kids.svg', copy: 'Un cumple a lo grande. Un plan muy tuyo.\nParque de bolas, juegos y un espacio para celebrar en Elche.\nDescubre Diverdino · Cumpleaños infantiles y consulta tu fecha.\n#DiverdinoKids #DiverdinoElche #CumpleañosElche' },
   { title: 'Diverdino · 16 y 18', image: 'assets/diverdino-social.svg', original: 'assets/diverdino-social.svg', filename: 'diverdino-social.svg', copy: 'Tus 16. Tus 18. Tu manera de celebrar.\nUn gran plan empieza con tu gente: consulta las opciones de celebración, disponibilidad y condiciones.\nVamos a preparar algo muy tuyo.\n#DiverdinoCelebraciones #DiverdinoElche #CelebracionesElche' },
   { title: 'Diverdino · Familia y amigos', image: 'assets/diverdino-together.svg', original: 'assets/diverdino-together.svg', filename: 'diverdino-together.svg', copy: 'La mejor excusa para juntarnos: estar juntos.\nCenas, encuentros y celebraciones con tu gente en Elche.\nCuéntanos tu idea y preparemos un gran plan.\n#DiverdinoCelebraciones #DiverdinoElche #PlanesEnElche' },
@@ -36,6 +37,7 @@ function setTab(name, focus = false) {
     if (active && focus) tab.focus();
   });
   history.replaceState(null, '', `#${name}`);
+  animatePanelSwap($(`#view-${name}`));
 }
 
 function filteredBookings() {
@@ -59,7 +61,7 @@ function renderBookings() {
     row.append(element('td', '', formatDate(booking.date)));
     const titleCell = document.createElement('td');
     titleCell.append(element('span', 'booking-title', TYPES[booking.type] || 'Celebración'));
-    titleCell.append(element('span', 'booking-detail', booking.type === 'kids' ? `${booking.guests} asistentes · ${money(booking.total)} simulados` : `${booking.guests} asistentes · presupuesto pendiente`));
+    titleCell.append(element('span', 'booking-detail', booking.type === 'kids' ? `${booking.guests} asistentes · ${money(booking.total)} orientativos` : `${booking.guests} asistentes · presupuesto pendiente`));
     row.append(titleCell, element('td', '', SLOTS[booking.slot] || booking.slot));
     const statusCell = document.createElement('td');
     statusCell.append(element('span', `booking-status is-${booking.status}`, STATUS[booking.status] || 'Por revisar'));
@@ -74,7 +76,7 @@ function renderBookings() {
   const empty = $('#agenda-empty');
   empty.hidden = bookings.length > 0;
   empty.querySelector('h3').textContent = state.bookings.length ? 'No hay celebraciones con este filtro.' : 'Tu agenda empieza con la primera celebración.';
-  empty.querySelector('p').textContent = state.bookings.length ? 'Prueba otro estado o selecciona otra fecha en el calendario.' : 'Prueba una reserva desde la web y aparecerá aquí.';
+  empty.querySelector('p').textContent = state.bookings.length ? 'Prueba otro estado o selecciona otra fecha en el calendario.' : 'Al conectar la agenda, podrás reunir aquí las reservas del negocio.';
   const dateFilter = $('#date-filter');
   dateFilter.hidden = !state.selectedDate;
   dateFilter.textContent = state.selectedDate ? `${formatDate(state.selectedDate)} · Quitar filtro` : '';
@@ -89,7 +91,7 @@ function changeStatus(id) {
   if (!target) { renderAll(); notify('Esta reserva ya no está en el navegador.'); return; }
   const restoring = target.status === 'cancelled';
   if (restoring && !available(state.bookings, target.date, target.slot)) {
-    notify('No se puede restaurar: ese turno ya tiene una reserva demo activa.');
+    notify('No se puede restaurar: ese turno ya tiene una anotación activa.');
     renderAll(); return;
   }
   const next = state.bookings.map((booking) => {
@@ -100,7 +102,7 @@ function changeStatus(id) {
     }
     return { ...booking, cancelledFrom: booking.status, status: 'cancelled' };
   });
-  try { saveBookings(next); state.bookings = next; renderAll(); notify(restoring ? 'Reserva de prueba restaurada.' : 'Reserva de prueba cancelada. Puedes restaurarla desde Canceladas.'); }
+  try { saveBookings(next); state.bookings = next; renderAll(); notify(restoring ? 'Anotación restaurada.' : 'Anotación cancelada. Puedes restaurarla desde Canceladas.'); }
   catch { notify('No se pudo guardar el cambio en este navegador.'); }
 }
 
@@ -119,7 +121,7 @@ function renderCalendar() {
     const afternoon = occupied.some((booking) => booking.slot === 'afternoon' || booking.slot === 'full');
     const button = element('button', `calendar-day${date === todayMadrid() ? ' is-today' : ''}${date === state.selectedDate ? ' is-selected' : ''}${occupied.length ? ' is-busy' : ''}${morning && afternoon ? ' is-full' : ''}`, String(day));
     button.type = 'button';
-    button.setAttribute('aria-label', `${formatDate(date)}. ${morning && afternoon ? 'Día ocupado' : morning ? 'Mañana ocupada' : afternoon ? 'Tarde ocupada' : 'Sin reservas demo activas'}`);
+    button.setAttribute('aria-label', `${formatDate(date)}. ${morning && afternoon ? 'Día ocupado' : morning ? 'Mañana ocupada' : afternoon ? 'Tarde ocupada' : 'Sin anotaciones activas'}`);
     button.setAttribute('aria-pressed', String(date === state.selectedDate));
     if (date === todayMadrid()) button.setAttribute('aria-current', 'date');
     button.addEventListener('click', () => { state.selectedDate = state.selectedDate === date ? '' : date; renderAll(); });
@@ -148,9 +150,9 @@ function downloadBlob(blob, filename) {
 }
 
 function exportAgenda() {
-  const rows = [['ID', 'Fecha', 'Celebración', 'Turno', 'Asistentes', 'Limpieza', 'Total simulado EUR', 'Señal simulada EUR', 'Estado'], ...filteredBookings().map((booking) => [booking.id, booking.date, TYPES[booking.type] || booking.type, SLOTS[booking.slot] || booking.slot, booking.guests, booking.cleaning ? 'Sí' : 'No', booking.total, booking.deposit, STATUS[booking.status] || booking.status])];
-  downloadBlob(new Blob(['\uFEFF' + rows.map((row) => row.map(csvCell).join(';')).join('\r\n')], { type: 'text/csv;charset=utf-8;' }), `diverdino-agenda-demo-${todayMadrid()}.csv`);
-  notify('CSV de la agenda filtrada descargado. Contiene datos de prueba.');
+  const rows = [['ID', 'Fecha', 'Celebración', 'Turno', 'Asistentes', 'Limpieza', 'Total orientativo EUR', 'Importe anotado EUR', 'Estado'], ...filteredBookings().map((booking) => [booking.id, booking.date, TYPES[booking.type] || booking.type, SLOTS[booking.slot] || booking.slot, booking.guests, booking.cleaning ? 'Sí' : 'No', booking.total, booking.deposit, STATUS[booking.status] || booking.status])];
+  downloadBlob(new Blob(['\uFEFF' + rows.map((row) => row.map(csvCell).join(';')).join('\r\n')], { type: 'text/csv;charset=utf-8;' }), `diverdino-agenda-${todayMadrid()}.csv`);
+  notify('CSV de la agenda filtrada descargado. Contiene los apuntes locales de este dispositivo.');
 }
 
 async function copyCampaign(text, button) {
