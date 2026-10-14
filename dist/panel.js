@@ -6,10 +6,10 @@ let toastTimer;
 const STATUS = { demo: 'Demo activa', review: 'Por revisar', cancelled: 'Cancelada' };
 const campaigns = [
   { title: 'TikTok · un cumple desde dentro', filename: 'tiktok-cumple.txt', copy: 'Guion vertical de 20 segundos: entrada del local → parque de bolas vacío → rocódromo y zona baby → mesa preparada.\nTexto: Un cumple para los peques. Un gran plan para toda la familia.\nCierre: Consulta tu fecha · 644 580 495.\nPropuesta para grabar con material real del espacio y personas autorizadas. No se publica desde esta demo.' },
-  { title: 'Diverdino Kids', image: 'assets/cartel-kids.webp', original: 'assets/cartel-kids.png', filename: 'gran-plan-kids.png', copy: 'Un cumple a lo grande. Un plan muy tuyo.\nParque de bolas, juegos y un espacio para celebrar en Elche.\nDescubre Diverdino Kids por gran plan. y consulta tu fecha.\n#DiverdinoKids #GranPlanElche #CumpleañosElche' },
-  { title: 'Gran Plan Social', image: 'assets/cartel-social.webp', original: 'assets/cartel-social.png', filename: 'gran-plan-social.png', copy: 'Tus 16. Tus 18. Tu manera de celebrar.\nUn gran plan empieza con tu gente: consulta las opciones de celebración, disponibilidad y condiciones.\nVamos a preparar algo muy tuyo.\n#GranPlanSocial #GranPlanElche #CelebracionesElche' },
-  { title: 'Gran Plan Together', image: 'assets/cartel-together.webp', original: 'assets/cartel-together.png', filename: 'gran-plan-together.png', copy: 'La mejor excusa para juntarnos: estar juntos.\nCenas, encuentros y celebraciones con tu gente en Elche.\nCuéntanos tu idea y preparemos un gran plan.\n#GranPlanTogether #GranPlanElche #PlanesEnElche' },
-  { title: 'Un local. Todos tus planes.', filename: 'gran-plan-borrador.txt', copy: 'Hay planes que merecen su propio lugar.\nCumpleaños, cenas y encuentros: cuéntanos qué quieres celebrar.\nGran plan. · casa de celebraciones en Elche.\nConsulta disponibilidad, opciones y condiciones antes de reservar.\n#GranPlanElche #CelebraEnElche' }
+  { title: 'Diverdino Kids', image: 'assets/diverdino-kids.svg', original: 'assets/diverdino-kids.svg', filename: 'diverdino-kids.svg', copy: 'Un cumple a lo grande. Un plan muy tuyo.\nParque de bolas, juegos y un espacio para celebrar en Elche.\nDescubre Diverdino · Cumpleaños infantiles y consulta tu fecha.\n#DiverdinoKids #DiverdinoElche #CumpleañosElche' },
+  { title: 'Diverdino · 16 y 18', image: 'assets/diverdino-social.svg', original: 'assets/diverdino-social.svg', filename: 'diverdino-social.svg', copy: 'Tus 16. Tus 18. Tu manera de celebrar.\nUn gran plan empieza con tu gente: consulta las opciones de celebración, disponibilidad y condiciones.\nVamos a preparar algo muy tuyo.\n#DiverdinoCelebraciones #DiverdinoElche #CelebracionesElche' },
+  { title: 'Diverdino · Familia y amigos', image: 'assets/diverdino-together.svg', original: 'assets/diverdino-together.svg', filename: 'diverdino-together.svg', copy: 'La mejor excusa para juntarnos: estar juntos.\nCenas, encuentros y celebraciones con tu gente en Elche.\nCuéntanos tu idea y preparemos un gran plan.\n#DiverdinoCelebraciones #DiverdinoElche #PlanesEnElche' },
+  { title: 'Un local. Todos tus planes.', filename: 'diverdino-borrador.txt', copy: 'Hay planes que merecen su propio lugar.\nCumpleaños, cenas y encuentros: cuéntanos qué quieres celebrar.\nDiverdino · Tu lugar de celebraciones en Elche.\nConsulta disponibilidad, opciones y condiciones antes de reservar.\n#DiverdinoElche #CelebraEnElche' }
 ];
 
 function notify(message) {
@@ -149,7 +149,7 @@ function downloadBlob(blob, filename) {
 
 function exportAgenda() {
   const rows = [['ID', 'Fecha', 'Celebración', 'Turno', 'Asistentes', 'Limpieza', 'Total simulado EUR', 'Señal simulada EUR', 'Estado'], ...filteredBookings().map((booking) => [booking.id, booking.date, TYPES[booking.type] || booking.type, SLOTS[booking.slot] || booking.slot, booking.guests, booking.cleaning ? 'Sí' : 'No', booking.total, booking.deposit, STATUS[booking.status] || booking.status])];
-  downloadBlob(new Blob(['\uFEFF' + rows.map((row) => row.map(csvCell).join(';')).join('\r\n')], { type: 'text/csv;charset=utf-8;' }), `gran-plan-agenda-demo-${todayMadrid()}.csv`);
+  downloadBlob(new Blob(['\uFEFF' + rows.map((row) => row.map(csvCell).join(';')).join('\r\n')], { type: 'text/csv;charset=utf-8;' }), `diverdino-agenda-demo-${todayMadrid()}.csv`);
   notify('CSV de la agenda filtrada descargado. Contiene datos de prueba.');
 }
 

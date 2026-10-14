@@ -1,5 +1,9 @@
 # Validación de la propuesta · 14/10/2026
 
+**Actualización vigente:** la propiedad confirma Diverdino y «Tu lugar de celebraciones». Las menciones a otra marca y las primeras referencias visuales de este documento son antecedentes sustituidos. La última revisión comprueba la cabecera y el lema, la tarjeta infantil con el Dino original de Material, los tres carteles SVG con nombre Diverdino, el panel y la identificación de Shifter / Work Shift Calendar de LRHSoft. Las diez imágenes de Material se inspeccionaron; cuatro vídeos se inventariaron sin afirmar su contenido. Inventario en `materiales.md`.
+
+La cabecera se comprobó a 870 px y a 390 px de ancho CSS; sin desbordamiento de página (855/855 y 375/375). La navegación «Celebraciones» abre su sección. Marketing muestra los tres carteles cargados; la pestaña Conexiones explica la exportación de Shifter en PRO sin indicar conexión activa. Portada, panel y propuesta tienen los títulos correctos y contenido; no hay pantalla en blanco, superposición de error ni errores/avisos capturados. Capturas: `diverdino-cabecera-corregida.jpg`, `diverdino-movil.jpg`, `diverdino-material-original.jpg` y `diverdino-carteles.jpg` en la carpeta de evidencias indicada al final. JavaScript de panel comprobado con `node --check`. No se repiten las pruebas de tarifas o solapamientos porque su implementación no cambia en esta revisión. No se ha probado aún la exportación desde el teléfono ni se ha accedido a la cuenta real de Shifter.
+
 ## Entorno y método
 
 Se utilizó el navegador integrado de Codex mediante CUA/IAB, sin recurrir a un navegador externo. Origen local comprobado: `http://127.0.0.1:43167`. Las tres páginas devolvieron contenido significativo. Se comprobó la identidad por título y ruta, ausencia de pantalla en blanco y de errores de aplicación en la consola.

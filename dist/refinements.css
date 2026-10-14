@@ -14,6 +14,10 @@ input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible,su
 .booking-widget input:not([type=radio]):not([type=checkbox]),.booking-widget select{min-height:48px}
 .proposal-wide-use{font-size:15px;line-height:1.7;max-width:850px;margin-top:24px!important}
 .panel-page .connection-card-heading h2{line-height:1.2}
+.site-header .brand-sub{letter-spacing:.1em;white-space:nowrap}
+.experiences img.original-dino{aspect-ratio:4/3;object-fit:cover;object-position:center 63%}
+.proposal-logo-stage>.current-brand-wordmark{font-family:var(--display);font-size:clamp(38px,5vw,72px);font-weight:800;letter-spacing:-.065em;color:#0aa9c6;margin:0}
+.proposal-logo-stage>.current-brand-wordmark>span{color:var(--pink)}
 @media(prefers-reduced-motion:no-preference){.hero-art img,.experiences article{transition:transform 420ms var(--ease-celebrate)}.hero-art:hover img{transform:translateY(-3px)}.experiences article:hover{transform:translateY(-4px)}}
 @media(max-width:900px){.open-plans{align-items:flex-start;flex-direction:column}.open-plans .btn{font-size:15px}}
 @media(max-width:760px){.experiences{grid-template-columns:minmax(0,1fr)}.open-plans{padding:24px;margin-top:32px;border-radius:18px}.open-plans p{font-size:15px}.venue-capacity{font-size:15px}.venue-capacity strong{display:block;font-size:24px}.hero-art img{height:auto;aspect-ratio:1/1}}

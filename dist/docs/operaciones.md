@@ -1,10 +1,10 @@
-# Gran Plan / Diverdino · Reservas y gestión desde un único punto
+# Diverdino · Reservas y gestión desde un único punto
 
 Propuesta operativa y técnica contrastada el **14 de octubre de 2026**. Especificación para desarrollar la solución; no acredita que existan conexiones activas, pagos operativos ni permisos para nuevas actividades.
 
 ## Decisión recomendada
 
-Crear una web propia con identidad visual potente y un **panel Gran Plan para Diverdino** que concentre agenda, reservas, clientes, señales, tareas del evento y comunicaciones. El registro central de reservas será la autoridad de disponibilidad. El calendario actual es Shifter; se evaluará su conexión o migración tras identificar la aplicación. Google Calendar queda como puente opcional por comprobar; Stripe procesará la señal; WhatsApp Business Platform permitirá comunicaciones autorizadas. Las herramientas nativas de Meta seguirán disponibles para las funciones avanzadas de publicidad y redes.
+Crear una web propia con identidad visual potente y un **panel de Diverdino** que concentre agenda, reservas, clientes, señales, tareas del evento y comunicaciones. El registro central de reservas será la autoridad de disponibilidad. El calendario actual es Shifter / Work Shift Calendar de LRHSoft, ya identificado; se evaluará una importación controlada de sus reservas. Google Calendar queda como puente opcional por comprobar; Stripe procesará la señal; WhatsApp Business Platform permitirá comunicaciones autorizadas. Las herramientas nativas de Meta seguirán disponibles para las funciones avanzadas de publicidad y redes.
 
 Esta combinación permite que la marca y el recorrido de compra sean propios sin desarrollar un procesador de pagos o depender de automatizaciones de WhatsApp no oficiales. “Un único punto” debe significar una ficha de evento y una agenda compartida, con estados de conexión reales. No se debe prometer que todas las funciones de Google, Meta y Stripe estarán reproducidas dentro del panel.
 
@@ -14,7 +14,18 @@ Esta combinación permite que la marca y el recorrido de compra sean propios sin
 
 La propiedad confirma 75 personas entre niños y adultos; limpieza 25 €, hora extra 20 €/h e importe para confirmar el día 20 €. Las tarifas de alquiler vigentes son 80/100 € de lunes a jueves, 120/130 € viernes–domingo y festivos, y 190 € el día completo, con los horarios de la ficha [decision-actualizada.md](decision-actualizada.md). Esa confirmación escrita prevalece sobre el cartel anterior.
 
-Shifter es la agenda que ya utiliza el negocio. Hay productos distintos con nombres parecidos; no se afirma una API ni una sincronización bidireccional hasta identificarlo. La aplicación de LRHSoft anuncia exportación a Google Calendar en su [ficha oficial](https://play.google.com/store/apps/details?id=com.lrhsoft.shiftercalendar); existe también un [Shifter de iDevBand](https://play.google.com/store/apps/details?id=com.idevband.shiftcalendar). Estas son opciones a identificar, no una conclusión sobre vuestra cuenta. Una exportación puntual no equivale a disponibilidad en tiempo real. Hasta completar una conexión fiable, las solicitudes requieren comprobación humana.
+La propiedad identifica Shifter / Work Shift Calendar de LRHSoft (`com.lrhsoft.shiftercalendar`). La [ficha oficial](https://play.google.com/store/apps/details?id=com.lrhsoft.shiftercalendar) anuncia exportación a Google Calendar y la [web del fabricante](https://www.lrhsoft.com/wsc.html) la incluye en PRO. No se ha encontrado documentación de una API pública ni de sincronización bidireccional en las páginas oficiales consultadas. La exportación es una vía de traslado por probar, no una garantía de disponibilidad en tiempo real. Hasta cargar y validar toda la agenda, las solicitudes requieren comprobación humana.
+
+### Transición concreta desde Shifter
+
+1. Comprobar versión instalada, acceso a PRO y calendario que contiene las reservas del local. No comprar ni activar servicios desde esta propuesta.
+2. Hacer copia y probar una exportación a un calendario de prueba privado, sin alterar la agenda original. Contrastar una mañana, una tarde, un día completo, un cambio y una cancelación. Revisar fechas, horas, notas y duplicados; no se presupone qué campos conserva.
+3. Preparar correspondencia de cada turno con fecha, inicio/fin Europe/Madrid y estado. Si una nota no se exporta, trasladar sus datos necesarios de forma controlada.
+4. Comparar todas las reservas futuras y los bloqueos con Shifter, conciliando recuentos y franjas; resolver diferencias antes de habilitar la venta automática.
+5. Fijar el momento de cambio: desde entonces todas las altas, cambios y cancelaciones, también teléfono y WhatsApp, se gestionan en el panel central. Google Calendar puede actuar como vista posterior; cualquier uso de Shifter tras el cambio queda como consulta histórica salvo que se pruebe una integración fiable.
+6. Probar dos solicitudes simultáneas, caducidad del bloqueo y confirmación de señal. Lanzar solo después de esa aceptación.
+
+La recomendación es migrar el control comercial al panel, conservando Shifter durante la transición. Mantener altas independientes en ambas agendas dejaría un hueco de control. Esta es una recomendación técnica derivada de las funciones documentadas, no una limitación demostrada de todas las versiones de Shifter.
 
 ## El recorrido de una reserva
 
@@ -69,7 +80,7 @@ La política vigente exige permiso para los contactos posteriores. Para iniciar 
 
 Automatizaciones útiles, una vez activadas: confirmación de reserva, recordatorio de saldo, información de acceso, recordatorio previo y petición de valoración posterior. Las campañas de cumpleaños siguientes o descuentos exigen su propio tratamiento comercial; no se consideran incluidas por haber reservado una vez. Las plantillas mostradas en un prototipo serán borradores, pendientes de aprobación y configuración.
 
-Para Facebook e Instagram se recomienda empezar con **Meta Business Suite**: planificación de publicaciones e historias, atención de mensajes e información de resultados. El panel Gran Plan organizará los contenidos y enlazará cada campaña con solicitudes/reservas. La publicación directa desde software propio se valorará como una integración adicional según permisos y funciones realmente disponibles, sin prometer todos los formatos. [Formación oficial de Meta Business Suite](https://www.facebookblueprint.com/student/path/248709-meta-business-suite-customer-connection).
+Para Facebook e Instagram se recomienda empezar con **Meta Business Suite**: planificación de publicaciones e historias, atención de mensajes e información de resultados. El panel Diverdino organizará los contenidos y enlazará cada campaña con solicitudes/reservas. La publicación directa desde software propio se valorará como una integración adicional según permisos y funciones realmente disponibles, sin prometer todos los formatos. [Formación oficial de Meta Business Suite](https://www.facebookblueprint.com/student/path/248709-meta-business-suite-customer-connection).
 
 TikTok es también un canal actual del negocio. El panel incluye planificación y guiones; la publicación directa se activaría solo con app y permisos aprobados. TikTok requiere autorización del perfil y revisión de la integración para retirar sus límites de visibilidad. [Documentación oficial de Content Posting API](https://developers.tiktok.com/docs/en/content-posting-api-get-started).
 

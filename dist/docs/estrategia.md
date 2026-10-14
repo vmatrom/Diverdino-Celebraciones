@@ -1,30 +1,21 @@
-# GRAN PLAN · Casa de celebraciones
+# DIVERDINO · Tu lugar de celebraciones
 
-**Propuesta estratégica y plan de ejecución · 14 de octubre de 2026**  
-Documento de trabajo para decidir, presupuestar y lanzar. GRAN PLAN es un nombre creativo de trabajo: su disponibilidad como marca, denominación comercial, dominio y usuario social no se ha validado. Las propuestas comerciales todavía no son servicios contratables ni compromisos de rentabilidad. El alcance de demostración, backlog técnico y aceptación de producción se concretan en [brief-desarrollo.md](brief-desarrollo.md).
+**Propuesta estratégica y plan de ejecución · 14 de octubre de 2026**
+Documento de trabajo actualizado con las indicaciones de la propiedad. Se mantiene el nombre Diverdino, los colores originales y el lema «Tu lugar de celebraciones». El alcance de demostración y la aceptación de producción figuran en [brief-desarrollo.md](brief-desarrollo.md).
 
 ## 1. La decisión empresarial
 
-Diverdino se proyecta como un espacio amplio de celebraciones y encuentros, con los cumpleaños infantiles como núcleo comercial. La marca también debe acoger reuniones familiares, quedadas de amigos, cenas, charlas y otras actividades compatibles con el local. La oportunidad consiste en vender con claridad **qué experiencia puede organizar cada cliente**, facilitar una reserva fiable y operar cada evento con el mismo estándar.
+Diverdino es un espacio amplio de celebraciones y encuentros, con los cumpleaños infantiles como núcleo comercial. También acoge reuniones familiares, amigos, cenas, charlas y otras actividades compatibles. La renovación amplía el mensaje y mejora la gestión conservando el nombre que la clientela ya conoce.
 
-La propiedad ha elegido una **marca paraguas nueva y amplia**, conservando Diverdino como línea infantil. La propuesta creativa es **GRAN PLAN · Casa de celebraciones**, con tres accesos comerciales:
+La web presenta ocasiones fáciles de entender: cumpleaños infantiles; celebraciones de 16 y 18; familia, amigos y cenas; charlas y otros encuentros bajo revisión. Son usos del mismo local, sin convertirlos en marcas nuevas.
 
-- **Diverdino Kids, por Gran Plan:** cumpleaños y reuniones familiares con niños; conserva el reconocimiento de la marca actual.
-- **Gran Plan Social:** celebraciones de 16 y 18 años, siempre dentro de las condiciones autorizadas para el local y con los responsables que correspondan.
-- **Gran Plan Together:** cenas, reuniones de amigos, celebraciones familiares, charlas y otros encuentros revisados según actividad.
+**Marca:** Diverdino.
+**Lema confirmado:** «Tu lugar de celebraciones».
+**Idea de campaña:** «Hay muchos motivos. Un lugar para celebrarlos».
 
-Son nombres de trabajo. Antes de adoptarlos se debe comprobar disponibilidad y posibilidad de protección. En navegación y publicidad se acompañarán de expresiones que la gente ya busca: «cumpleaños infantiles», «fiestas de 16 y 18 años» y «local para cenas y reuniones en Elche». El nombre creativo nunca debe dificultar entender la oferta.
+### Renovación con continuidad
 
-**Promesa propuesta:** «Tu gente. Tu plan. Tu fiesta.»  
-**Idea de campaña:** «Hay muchos motivos. Un lugar para celebrarlos.»
-
-### Transición sin perder el negocio existente
-
-La nueva marca no exige borrar de golpe la anterior. Se mantiene el dominio `diverdinoelche.com` bajo control de la propiedad y se preservan las direcciones útiles y su contenido. Durante la transición se utiliza una relación explícita: «Gran Plan, la nueva casa de celebraciones de Diverdino» y «Diverdino Kids, por Gran Plan». El cambio de nombre en la ficha de Google y los perfiles se prepara con la identidad real del establecimiento y las reglas de cada plataforma.
-
-Si finalmente se registra otro dominio, la migración debe incluir inventario de URLs, redirecciones 301 equivalentes, actualización de enlaces, sitemap y seguimiento de tráfico y consultas. No se abandona ni caduca el dominio actual. Las cuentas nuevas o cambios de nombre se realizan después de asegurar marca y accesos; la propuesta no supone que estén libres.
-
-La comunicación debe priorizar a las familias y los cumpleaños infantiles, sin convertir el negocio completo en una marca exclusiva para niños. El cambio visual debe demostrar cómo se transforma el mismo espacio. Un adulto tiene que poder imaginar una cena sin que la comunicación parezca una fiesta para niños. Una familia debe seguir reconociendo el parque de bolas y el ambiente cercano. Esto se resuelve con fotografía, disposición de mesas, iluminación y contenido por ocasión; requiere comprobar qué transformaciones son posibles y compatibles con la actividad autorizada.
+Se conserva diverdinoelche.com y los perfiles existentes. Se revisan textos, imágenes y navegación para mostrar posibilidades reales del espacio. El logotipo multicolor y el Dino de Material son referencias propias de identidad. La nueva web utiliza una firma tipográfica legible y el lema confirmado; los maestros finales se prepararán a partir de esta marca.
 
 ## 2. Qué sabemos y qué debemos validar
 
@@ -34,7 +25,7 @@ La información siguiente procede de lo indicado por la propiedad, de la web act
 
 | Dato | Base disponible | Tratamiento en el proyecto |
 |---|---|---|
-| Nombre comercial actual: Diverdino | Web y propiedad | Conservar como línea infantil dentro de la marca paraguas propuesta |
+| Nombre comercial: Diverdino | Web y propiedad | Mantenerlo para todo el espacio; lema «Tu lugar de celebraciones» |
 | Dirección: C/ Francisco Vicente Rodríguez, 38, Elche | Web actual | Verificar formato y ubicación antes de publicar |
 | Teléfono: +34 644 580 495 | Web actual | Validar acceso y titularidad para la operación de WhatsApp |
 | Superficie anunciada: 180 m² | Web actual | No presentar como superficie útil certificada |
@@ -42,7 +33,7 @@ La información siguiente procede de lo indicado por la propiedad, de la web act
 | Parque de bolas, cocina, karaoke, TV, WiFi, mesas y sillas | Propiedad y web/material | Confirmar inventario, funcionamiento, límites y condiciones de uso |
 | Local céntrico | Descripción de la propiedad | Ubicar en mapa; evitar distancias o aparcamiento no verificados |
 | Instagram, Facebook y TikTok | Propiedad y web actual | Los perfiles Instagram/Facebook están enlazados en la web; identificar el perfil de TikTok antes de enlazarlo |
-| Calendario actual: Shifter | Propiedad | Identificar aplicación y capacidad real de exportación/sincronización; no dar por activa una API |
+| Calendario actual: Shifter | Propiedad | Aplicación LRHSoft identificada; exportación a Google Calendar anunciada, PRO según fabricante; probar el traslado |
 | Actividades, talleres y escuelas anunciados | Web actual | Separar del alquiler; verificar si siguen activos, su autorización y su rentabilidad |
 
 **Fuente de identidad y descripción:** [web actual de Diverdino](https://www.diverdinoelche.com/).
@@ -78,7 +69,7 @@ Ninguna de estas hipótesis equivale a demanda demostrada. La validación exige 
 
 ### Decisiones que se propone aprobar
 
-- Crear una marca paraguas amplia con Diverdino como línea infantil y un solo inventario de disponibilidad.
+- Ampliar el mensaje de Diverdino a más celebraciones, conservando el nombre y un solo inventario de disponibilidad.
 - Comunicar por ocasión de uso, con fotografías reales y precios verificables.
 - Consolidar las reservas en un panel central, incluidas las que lleguen por teléfono o WhatsApp.
 - Lanzar primero una oferta simple y operable; añadir servicios solo después de comprobar proveedores, permisos y margen.
@@ -129,8 +120,8 @@ El modelo propuesto supone que se alquila el local en exclusiva como un único r
 | Oferta propuesta | Alcance comercial | Condiciones previas para activarla | Precio |
 |---|---|---|---|
 | **Diverdino Kids · Tu cumple** | Alquiler en franja válida y uso del equipamiento confirmado para ese formato | Inventario, supervisión, aforo y condiciones de parque revisados | Tarifa oficial de la franja validada |
-| **Gran Plan Social · 16 / 18** | Alquiler para la celebración y montaje disponible que se haya seleccionado | Encaje de actividad, edades, responsables, música y horarios confirmados | Tarifa validada; solo sumar servicios reales |
-| **Gran Plan Together · Nos sentamos a celebrar** | Alquiler para cena o reunión con distribución de mesas confirmada | Uso de cocina/comida, aforo sentado, horario y limpieza confirmados | Tarifa validada; comida no incluida salvo contratación expresa |
+| **Diverdino · 16 y 18 · 16 / 18** | Alquiler para la celebración y montaje disponible que se haya seleccionado | Encaje de actividad, edades, responsables, música y horarios confirmados | Tarifa validada; solo sumar servicios reales |
+| **Diverdino · Familia y amigos · Nos sentamos a celebrar** | Alquiler para cena o reunión con distribución de mesas confirmada | Uso de cocina/comida, aforo sentado, horario y limpieza confirmados | Tarifa validada; comida no incluida salvo contratación expresa |
 | **Tu fiesta preparada** | Coordinación opcional de decoración o proveedores | Proveedor confirmado, alcance, plazos, cancelación y margen definidos | Presupuesto cerrado antes de contratar |
 
 No se anuncia «todo incluido» si comida, decoración o personal se cobran aparte. No se añaden bebidas, animación, fotomatón, luces especiales o catering como disponibles hasta tener un servicio concreto y operativo.
@@ -209,7 +200,7 @@ Los talleres o escuelas solo tendrán página propia si el servicio sigue operat
 ### Texto de apertura propuesto
 
 > **Tu gente. Tu plan. Tu fiesta.**  
-> Cumpleaños infantiles, celebraciones de 16 y 18 y encuentros alrededor de una mesa. Descubre Gran Plan, la casa de celebraciones de Diverdino en Elche.  
+> Cumpleaños infantiles, celebraciones de 16 y 18 y encuentros alrededor de una mesa. Descubre Diverdino · Tu lugar de celebraciones en Elche.  
 > **Acción principal:** Ver fechas  
 > **Acción secundaria:** Conocer el espacio
 
@@ -219,7 +210,7 @@ Este texto es un borrador condicionado a validar las tres líneas de actividad. 
 
 La propiedad ha indicado expresamente que se mantengan los colores originales con un enfoque nuevo. La identidad usará **turquesa `#4fc3dc`, fucsia `#e51b83`, verde `#56b827`, amarillo `#fbc000` y naranja `#f08219`**, con blanco y tinta oscura como soporte para lectura y jerarquía. Esta paleta queda fijada como requisito de diseño.
 
-La renovación procede de buena tipografía, espacios amplios, composición editorial, formas reconocibles, fotografía y una dosificación adulta del color. Gran Plan tendrá un sistema visual amplio; el personaje o símbolo de Diverdino puede evolucionar dentro de Kids, sin cargar las piezas de Social y Together con una estética infantil. El color por experiencia sirve para orientarse; la navegación y el sistema de reserva siguen siendo los mismos.
+La renovación procede de buena tipografía, espacios amplios, composición editorial, formas reconocibles, fotografía y una dosificación adulta del color. Diverdino tendrá un sistema visual amplio; el personaje o símbolo de Diverdino puede evolucionar dentro de Kids, sin cargar las piezas de Social y Together con una estética infantil. El color por experiencia sirve para orientarse; la navegación y el sistema de reserva siguen siendo los mismos.
 
 Como pauta de aplicación, el turquesa articula reconocimiento y navegación; el fucsia marca acciones y detalles protagonistas; verde, amarillo y naranja aportan ritmo en etiquetas, módulos y piezas promocionales. Cada experiencia puede variar las proporciones sin perder los cinco colores originales. Se comprueba el contraste de cada pareja y se utiliza tinta oscura cuando el color de fondo no admite texto blanco con legibilidad suficiente. El color nunca es el único indicador de estado.
 
@@ -231,10 +222,10 @@ El lanzamiento requiere un sistema de piezas que puedan mantenerse, además de u
 
 | Pieza | Contenido y uso | Criterio de aceptación |
 |---|---|---|
-| Logotipo Gran Plan | Marca paraguas; versión principal, horizontal, reducida y monocroma | Legible en móvil, cartel y factura; originales vectoriales y archivos de uso disponibles |
-| Firma Diverdino Kids | Marca infantil vinculada de forma visible a Gran Plan | La clientela reconoce Diverdino y entiende la relación con la nueva casa |
+| Logotipo Diverdino | Marca del local; versión principal, horizontal, reducida y monocroma | Legible en móvil, cartel y factura; originales vectoriales y archivos de uso disponibles |
+| Firma Diverdino Kids | Identificación de los cumpleaños bajo la misma marca Diverdino | La clientela reconoce Diverdino y comprende la oferta |
 | Firmas Social / Together | Identificación de las otras ocasiones con el mismo lenguaje visual | No parecen empresas distintas ni salas diferentes |
-| Cartel principal | Gran Plan, ocasiones, dirección, contacto y QR | El QR lleva a una página controlada y funciona desde el tamaño final impreso |
+| Cartel principal | Diverdino, ocasiones, dirección, contacto y QR | El QR lleva a una página controlada y funciona desde el tamaño final impreso |
 | Cartel Kids | Fotografía real, invitación al cumpleaños, condiciones esenciales y contacto | Usa los importes aportados con sus condiciones confirmadas; no muestra menores sin permiso |
 | Cartel Social | Montaje real, celebración de 16/18, acceso a condiciones y contacto | La estética es propia del público; no promete actividad no validada |
 | Cartel Together | Mesa real y mensaje de reunión, indicación clara del alcance | No hace entender que la comida está incluida si no lo está |
@@ -246,7 +237,7 @@ Los formatos finales se ajustan a los soportes elegidos: cartel A3/A4, tarjetas 
 
 **Tono de marca:** cercano, directo y alegre; explicar qué se puede hacer y cómo prepararlo. En Kids se habla también a madres, padres y acompañantes. Social permite más personalidad sin perder claridad. Together muestra calidez y vida compartida. No se escriben reseñas ficticias, cifras de clientes, premios o promesas como «el mejor local de Elche».
 
-**Campaña de transición propuesta:** «Diverdino crece. Ahora tus celebraciones tienen un Gran Plan». Una serie presenta primero la relación entre marcas y después cada ocasión. Antes de cambiar perfiles se preparan publicaciones fijadas, respuestas de atención, web y cartelería para que el cliente no piense que el negocio ha desaparecido.
+**Campaña de transición propuesta:** «Diverdino · Tu lugar de celebraciones». Una serie presenta el espacio y después cada ocasión. Antes de cambiar perfiles se preparan publicaciones fijadas, respuestas de atención, web y cartelería para que el cliente no piense que el negocio ha desaparecido.
 
 ### Qué debe reunir el panel
 
@@ -300,18 +291,18 @@ Calendario relativo a la fecha real de lanzamiento. No presupone disponibilidad 
 
 | Semana / pieza | Formato y producción | Texto propuesto | Acción y objetivo |
 |---|---|---|---|
-| 1 · Presentación | Reel 15–20 s: entrada, plano abierto, detalle de bolas, mesa y karaoke | «Hay muchos motivos para juntarse. Un cumple, tus 18, esa cena que siempre aplazáis. Descubre Gran Plan, la nueva casa de celebraciones de Diverdino en Elche.» | «Conoce el espacio». Entender la amplitud de la marca |
-| 1 · Kids | Carrusel de 5 imágenes reales: juego, mesa, rincón de adultos, equipamiento, organización | «El cumpleaños empieza con una idea. Nosotros te enseñamos el espacio y te contamos cómo prepararlo. Juego, mesa y tu gente en Diverdino Kids, por Gran Plan.» | «Consulta tu fecha». Conseguir intención Kids |
+| 1 · Presentación | Reel 15–20 s: entrada, plano abierto, detalle de bolas, mesa y karaoke | «Hay muchos motivos para juntarse. Un cumple, tus 18, esa cena que siempre aplazáis. Diverdino · Tu lugar de celebraciones en Elche.» | «Conoce el espacio». Entender la amplitud de la marca |
+| 1 · Kids | Carrusel de 5 imágenes reales: juego, mesa, rincón de adultos, equipamiento, organización | «El cumpleaños empieza con una idea. Nosotros te enseñamos el espacio y te contamos cómo prepararlo. Juego, mesa y tu gente en Diverdino · Cumpleaños infantiles.» | «Consulta tu fecha». Conseguir intención Kids |
 | 1 · FAQ | Carrusel práctico: cómo se reserva, qué revisar, dónde consultar condiciones | «Antes de elegir un local, quieres saber qué incluye, cuánto cuesta y cómo asegurar tu fecha. Te lo contamos en una sola visita.» | «Ver condiciones y disponibilidad». Reducir dudas |
 | 2 · Transformación | Reel con la misma cámara en tres montajes reales | «El mismo lugar. Tres maneras de vivirlo. Kids, Social y Together: elige el motivo y descubre un montaje que encaje contigo.» | «Explora tu celebración». Validar versatilidad |
 | 2 · Social | Fotos de montaje de 16/18 sin asistentes o con modelos autorizados | «Tu playlist. Tus fotos. Tu grupo. Tu celebración empieza con un espacio que puedas hacer tuyo. Consulta las opciones y condiciones para tus 16 o tus 18.» | «Cuéntanos tu plan». Cualificar edad, fecha y grupo |
-| 2 · Preparación | Reel corto preparando mesas y comprobando material | «Lo que ves el día de tu fiesta empieza antes: revisar, preparar y dejar cada cosa lista. Así cuidamos tu llegada a Gran Plan.» | «Mira cómo funciona». Mostrar operación real |
-| 3 · Together | Carrusel de una mesa preparada para reunión | «Hay conversaciones que merecen una mesa grande. Reúne a tu familia o a tus amigos y consulta cómo preparar vuestra cena en Gran Plan Together.» | «Descubre Together». Medir interés en cenas |
+| 2 · Preparación | Reel corto preparando mesas y comprobando material | «Lo que ves el día de tu fiesta empieza antes: revisar, preparar y dejar cada cosa lista. Así cuidamos tu llegada a Diverdino.» | «Mira cómo funciona». Mostrar operación real |
+| 3 · Together | Carrusel de una mesa preparada para reunión | «Hay conversaciones que merecen una mesa grande. Reúne a tu familia o a tus amigos y consulta cómo preparar vuestra cena en Diverdino · Familia y amigos.» | «Descubre Together». Medir interés en cenas |
 | 3 · Equipamiento | Reel de TV, karaoke y cocina solo en usos aprobados | «Antes de elegir tu plan, conoce lo que tienes a mano. Te mostramos el equipamiento y las condiciones para usarlo durante tu celebración.» | «Ver el espacio». Resolver dudas sin prometer extras |
 | 3 · Ubicación | Vídeo exterior y mapa legible, sin prometer aparcamiento | «Nos encuentras en C/ Francisco Vicente Rodríguez, 38, Elche. Guarda la ubicación y compártela con tu grupo cuando tengáis la fecha confirmada.» | «Cómo llegar». Facilitar descubrimiento local |
 | 4 · Organización | Carrusel: fecha, asistentes, estilo, servicios y confirmación | «Cinco decisiones para empezar tu fiesta: cuándo, con quién, qué queréis hacer, qué necesitáis y cómo confirmar. Lo demás se prepara paso a paso.» | «Empieza por la fecha». Convertir interés |
-| 4 · Prueba real | Testimonio únicamente si existe, con permiso; alternativa: tour guiado del local | «Así se ve Gran Plan cuando está preparado para celebrar. Entra, recorre el espacio y decide qué ocasión te imaginas aquí.» | «Conoce el espacio». Aportar confianza |
-| 4 · Cierre del mes | Reel con mejores planos de cada montaje | «¿Qué toca celebrar en tu grupo? Un cumpleaños, un encuentro o una cena pendiente. Guarda Gran Plan y consulta tu próxima fecha.» | «Consulta tu fecha». Captar nuevas ocasiones |
+| 4 · Prueba real | Testimonio únicamente si existe, con permiso; alternativa: tour guiado del local | «Así se ve Diverdino cuando está preparado para celebrar. Entra, recorre el espacio y decide qué ocasión te imaginas aquí.» | «Conoce el espacio». Aportar confianza |
+| 4 · Cierre del mes | Reel con mejores planos de cada montaje | «¿Qué toca celebrar en tu grupo? Un cumpleaños, un encuentro o una cena pendiente. Guarda Diverdino y consulta tu próxima fecha.» | «Consulta tu fecha». Captar nuevas ocasiones |
 
 **Historias de apoyo:** dos o tres secuencias por semana con una pregunta frecuente, una preparación real y un enlace útil. Una encuesta puede explorar qué ocasiones interesan; sus respuestas no se interpretan como reservas ni como demanda representativa. Mostrar huecos únicamente con datos actuales y sin publicar información de clientes.
 
@@ -322,27 +313,27 @@ Calendario relativo a la fecha real de lanzamiento. No presupone disponibilidad 
 ### Anuncio A · Cumpleaños infantil
 
 **Vídeo 15 s:** 0–3 s, plano del parque; 3–7 s, mesa preparada; 7–11 s, detalles del local; 11–15 s, marca y ubicación.  
-**Texto:** «Se acerca su cumpleaños. Empieza por un lugar donde imaginar la fiesta. Descubre el parque de bolas y el espacio de Diverdino Kids, por Gran Plan, en Elche. Consulta qué incluye cada franja y elige tu fecha.»  
+**Texto:** «Se acerca su cumpleaños. Empieza por un lugar donde imaginar la fiesta. Descubre el parque de bolas y el espacio de Diverdino · Cumpleaños infantiles, en Elche. Consulta qué incluye cada franja y elige tu fecha.»  
 **Titular:** «Su cumple empieza en Diverdino Kids»  
 **Destino:** página Kids, con tarifas verificadas y consulta de fechas.
 
 ### Anuncio B · 16 / 18
 
 **Vídeo 15 s:** decoración y mesa de un montaje social real; detalles de karaoke/TV que estén permitidos; cierre con condiciones accesibles.  
-**Texto:** «Tus 16 o tus 18 merecen un plan que se parezca a ti. Descubre Gran Plan Social y consulta disponibilidad, horarios y condiciones para tu celebración.»  
+**Texto:** «Tus 16 o tus 18 merecen un plan que se parezca a ti. Descubre Diverdino · 16 y 18 y consulta disponibilidad, horarios y condiciones para tu celebración.»  
 **Titular:** «Tu grupo. Tu celebración.»  
 **Destino:** página Social. Activar después de validar el formato y la contratación por edad.
 
 ### Anuncio C · Cenas y reuniones
 
 **Vídeo 15 s:** mesa vacía → montaje → plano abierto; no insinuar comida incluida.  
-**Texto:** «La próxima cena de grupo puede empezar por elegir el lugar. Descubre Gran Plan Together en Elche y consulta el espacio, el equipamiento y las opciones para organizar vuestra reunión.»  
+**Texto:** «La próxima cena de grupo puede empezar por elegir el lugar. Descubre Diverdino · Familia y amigos en Elche y consulta el espacio, el equipamiento y las opciones para organizar vuestra reunión.»  
 **Titular:** «Nos falta poner fecha»  
 **Destino:** Together. Activar después de validar actividad, uso de cocina y condiciones de comida.
 
 ### Anuncio D · Búsqueda local
 
-**Titulares de trabajo:** «Celebraciones en Elche» · «Conoce Gran Plan» · «Consulta Tu Fecha».  
+**Titulares de trabajo:** «Celebraciones en Elche» · «Conoce Diverdino» · «Consulta Tu Fecha».  
 **Descripción:** «Descubre el espacio, el equipamiento y las opciones para tu celebración. Información de horarios, condiciones y disponibilidad en un solo lugar.»  
 Se adaptan a los límites y políticas vigentes de la plataforma en la configuración. No se utiliza «últimas fechas» sin evidencia.
 
@@ -352,7 +343,7 @@ Estos mensajes son plantillas editoriales, con campos entre corchetes. No están
 
 ### Primera respuesta a una consulta entrante
 
-«¡Hola, [nombre]! Soy [persona] de Gran Plan, la casa de celebraciones de Diverdino en Elche. Para orientarte, cuéntame qué queréis celebrar, qué fecha y franja os interesa y cuántas personas vendríais aproximadamente. Con esos datos comprobamos las opciones y te explicamos el precio completo.»
+«¡Hola, [nombre]! Soy [persona] de Diverdino, tu lugar de celebraciones en Elche. Para orientarte, cuéntame qué queréis celebrar, qué fecha y franja os interesa y cuántas personas vendríais aproximadamente. Con esos datos comprobamos las opciones y te explicamos el precio completo.»
 
 ### Respuesta cuando existe disponibilidad comprobada
 
@@ -372,7 +363,7 @@ Estos mensajes son plantillas editoriales, con campos entre corchetes. No están
 
 ### Después de la celebración
 
-«Gracias por celebrar en Gran Plan, [nombre]. ¿Cómo fue la experiencia? Si hubo algún problema, nos ayudará conocerlo para atenderlo. También puedes compartir una reseña sobre tu visita aquí: [enlace verificado].»
+«Gracias por celebrar en Diverdino, [nombre]. ¿Cómo fue la experiencia? Si hubo algún problema, nos ayudará conocerlo para atenderlo. También puedes compartir una reseña sobre tu visita aquí: [enlace verificado].»
 
 ### Recontacto comercial, solo si está permitido
 
@@ -564,4 +555,4 @@ Propuesta editorial inicial: ocho de doce piezas centradas en cumpleaños infant
 
 Instagram y Facebook mantendrán carruseles de organización, instalaciones y celebraciones. TikTok añadirá vídeo vertical que muestre el recorrido del espacio, preparación de una mesa y posibilidades de juego. Grabar con material real del local, planos de instalaciones y personas autorizadas; no sustituir pruebas reales por renders de reforma. Reutilizar el montaje original del vídeo para Reels cuando proceda, adaptando formato, texto y música a cada canal.
 
-Shifter es la agenda actual. Identificar la app exacta y sus opciones antes de decidir puente, sincronización o migración. Unificar todas las reservas en el registro central cuando entre en servicio el motor; durante transición no ofrecer confirmación automática basándose en una exportación desactualizada. La ficha vigente de negocio y tarifas está en [decision-actualizada.md](decision-actualizada.md).
+Shifter / Work Shift Calendar de LRHSoft es la agenda actual ya identificada. Probar la exportación a Google Calendar (PRO según fabricante) antes de importar reservas; no se presume sincronización en tiempo real. Unificar todas las reservas en el registro central cuando entre en servicio el motor; durante transición no ofrecer confirmación automática basándose en una exportación desactualizada. La ficha vigente de negocio y tarifas está en [decision-actualizada.md](decision-actualizada.md).

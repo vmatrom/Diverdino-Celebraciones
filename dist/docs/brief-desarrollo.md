@@ -1,4 +1,4 @@
-# GRAN PLAN · Brief de desarrollo y aceptación
+# DIVERDINO · Brief de desarrollo y aceptación
 
 **Fecha:** 14 de octubre de 2026.  
 **Proyecto:** renovación de marca, web comercial, reservas y panel de gestión del local actual Diverdino, Elche.  
@@ -6,7 +6,7 @@
 
 ## 1. Decisiones que gobiernan el desarrollo
 
-La propiedad ha elegido una marca paraguas amplia, manteniendo Diverdino como línea infantil. **GRAN PLAN · Casa de celebraciones** es el nombre creativo provisional: disponibilidad de marca, dominio y perfiles pendiente de comprobar. La arquitectura de trabajo es Diverdino Kids por Gran Plan, Gran Plan Social y Gran Plan Together.
+La propiedad confirma **DIVERDINO · Tu lugar de celebraciones**. Se conserva Diverdino para todo el espacio y se amplía el mensaje a más ocasiones. Los cumpleaños infantiles son la prioridad; familia, amigos, cenas, 16/18 y charlas utilizan la misma marca y el mismo inventario de reservas. La propuesta anterior de cambio de nombre queda sustituida.
 
 La instrucción de color es conservar la paleta original, con un enfoque visual nuevo:
 
@@ -41,7 +41,7 @@ El entorno de entrega debe permitir abrir las páginas, recorrer los enlaces y c
 
 | Función | Alcance de la demostración | Límite que debe quedar visible |
 |---|---|---|
-| Marca y experiencias | Presenta la marca provisional y Kids, Social y Together | La marca no está adoptada ni protegida por esta entrega; imágenes conceptuales no certifican el estado del local |
+| Marca y experiencias | Presenta Diverdino con el lema confirmado y sus distintas ocasiones | Las imágenes conceptuales no certifican el estado del local; esta entrega no realiza trámites registrales |
 | Tarifas | Usa los importes del cartel como referencia y permite revisar el cálculo | Las reglas pendientes no se presentan como condiciones contractuales cerradas |
 | Fechas y franjas | Consulta estados y registros de ejemplo; usa fecha de Madrid | No consulta la agenda real del negocio |
 | Solapamientos locales | Evita repetir la franja en el mismo almacenamiento del navegador; día completo se cruza con mañana/tarde | No garantiza exclusión entre usuarios, dispositivos, navegadores ni ventanas concurrentes |
@@ -76,7 +76,7 @@ Una simulación que se guarda, se cancela o se recupera dentro del mismo navegad
 | D11 | Restablecer los datos demo si se ofrece esa función | Se explica el alcance local y no afecta al negocio |
 | D12 | Abrir un segundo navegador o dispositivo | Se comunica que no comparte agenda; no se utiliza esta prueba como garantía de concurrencia |
 | D13 | Revisar consola y solicitudes de red | Sin errores que impidan el flujo; ninguna clave secreta ni envío de datos personales |
-| D14 | Revisar color, logos e imágenes | Paleta original respetada; marca provisional e imágenes conceptuales identificadas donde corresponda |
+| D14 | Revisar color, logos e imágenes | Nombre Diverdino y lema confirmado; paleta original y recursos de Material respetados; escenas conceptuales identificadas |
 
 La ejecución y el resultado de estas comprobaciones se deben registrar al entregar. La existencia del documento no significa que todas hayan pasado.
 
@@ -165,7 +165,7 @@ Para R01/R02/R06 conviene usar dos conexiones independientes y una barrera de si
 
 | Integración | Alcance inicial | Aceptación y tratamiento de fallos |
 |---|---|---|
-| Shifter / puente de calendario por verificar | Identificar producto, exportación y capacidad de sincronización; Google Calendar sería una alternativa de puente, no la agenda actual confirmada | Alta/actualización/cancelación trazable; reintentos sin duplicados; alerta de desconexión y reconciliación |
+| Shifter / puente de calendario por verificar | Shifter de LRHSoft identificado; exportación a Google Calendar anunciada y situada en PRO por el fabricante. Probar importación y conciliación; no hay API ni sincronización bidireccional verificadas | Alta/actualización/cancelación trazable; reintentos sin duplicados; alerta de desconexión y reconciliación |
 | Pagos | Señal mediante cuenta propia del negocio | Verificación de firma, importe/moneda y referencia; idempotencia; conciliación y devolución probadas |
 | Correo | Confirmación y guía de reserva si se implementa | Estado de envío/entrega según proveedor, reintentos y tarea si falla |
 | WhatsApp manual | Enlace público y atención por el equipo | Mensaje no equivale a reserva; toda confirmación se registra en el panel |
