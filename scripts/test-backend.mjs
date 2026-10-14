@@ -29,6 +29,9 @@ const repeat=code+'-R';await request('/api/admin/promotions',{code:repeat,kind:'
 check('Repeat birthday requires verification',(await request('/api/admin/bookings',{...booking,date:'2034-06-10',promo:repeat})).status,400);
 const ref=code+'-F';await request('/api/admin/promotions',{code:ref,kind:'referral',mode:'fixed',value:500,start:'2034-01-01',end:'2034-12-31',limit:5,active:true,referrer:'600000001'});
 check('Self referral rejected',(await request('/api/admin/bookings',{...booking,date:'2034-06-10',promo:ref})).status,400);
+check('Self referral cannot bypass country prefix',(await request('/api/admin/bookings',{...booking,phone:'+34 600 000 001',date:'2034-06-10',promo:ref})).status,400);
+const extended=await request('/api/admin/bookings',{...booking,date:'2034-06-11',promo:'',hours:3});check('Extended morning reservation saved',extended.status,200);
+check('Morning extension blocks overlapping afternoon',(await request('/api/admin/bookings',{...booking,date:'2034-06-11',slot:'afternoon',promo:''})).status,409);
 const draft=await request('/api/admin/records/events',{title:'QA E2E event',date,text:'Private draft',permission:false,status:'draft'});check('Save private draft',draft.status,200);
 const publicEvents=await (await fetch(base+'/api/events')).json();check('Draft not exposed',publicEvents.some(x=>x.id===draft.body.id),false);
 check('Publishing requires permission',(await request('/api/admin/records/events',{id:draft.body.id,title:'QA E2E event',date,text:'private',permission:false,status:'published'})).status,400);

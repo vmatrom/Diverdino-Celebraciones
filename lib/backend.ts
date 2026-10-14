@@ -7,7 +7,7 @@ function fail(message:string,status=400):never{throw Object.assign(new Error(mes
 function txt(x:unknown,max=500,required=false){if(typeof x!=='string'||x.length>max||(required&&!x.trim()))fail('Revisa los campos del formulario.');return x.trim();}
 function int(x:unknown,min:number,max:number){if(!Number.isInteger(x)||Number(x)<min||Number(x)>max)fail('Número fuera de los límites permitidos.');return Number(x);}
 function validDate(x:unknown){const v=txt(x,10,true);try{price(v,'morning',false,false);}catch{fail('Fecha incorrecta.');}return v;}
-function phone(x:unknown){const v=txt(x,25,true).replace(/[\s()+.-]/g,'');if(!/^\d{9,15}$/.test(v))fail('Introduce un teléfono válido.');return v;}
+function phone(x:unknown){let v=txt(x,25,true).replace(/[\s()+.-]/g,'');if(v.startsWith('00'))v=v.slice(2);if(!/^\d{9,15}$/.test(v))fail('Introduce un teléfono válido.');return v.length===9?'34'+v:v;}
 async function body(r:Request){if(Number(r.headers.get('content-length'))>64000)fail('Formulario demasiado grande.',413);const raw=await r.text();if(raw.length>64000)fail('Formulario demasiado grande.',413);try{return JSON.parse(raw);}catch{fail('Formato incorrecto.');}}
 function writeGuard(r:Request){if(r.headers.get('origin')!==new URL(r.url).origin||r.headers.get('x-diverdino-request')!=='1')fail('Solicitud no autorizada.',403);}
 async function log(db:D1Database,actor:string,action:string){await db.prepare('INSERT INTO audit(id,actor,action,created) VALUES(?,?,?,?)').bind(crypto.randomUUID(),actor,action,new Date().toISOString()).run();}
@@ -100,7 +100,8 @@ export async function backend(r:Request,env:Env):Promise<Response|null>{
    let reduction=0;if(code&&b.status!=='cancelled'){const p=await promoFor(db,code,date,contact,b.repeat===true,id);reduction=discount(q.base,p.mode,p.value);}
    const status=['pending','confirmed','done','cancelled'].includes(b.status)?b.status:'pending';
    const statements=[db.prepare('DELETE FROM slots WHERE booking=?').bind(id),db.prepare('INSERT INTO bookings(id,date,slot,status,name,phone,guests,type,base,extras,discount,total,promo,notes,updated) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET date=excluded.date,slot=excluded.slot,status=excluded.status,name=excluded.name,phone=excluded.phone,guests=excluded.guests,type=excluded.type,base=excluded.base,extras=excluded.extras,discount=excluded.discount,total=excluded.total,promo=excluded.promo,notes=excluded.notes,updated=excluded.updated').bind(id,date,slot,status,txt(b.name,120,true),contact,int(b.guests,1,75),txt(b.type,80,true),q.base,q.extras,reduction,q.base+q.extras-reduction,code,JSON.stringify({text:txt(b.notes||'',1500),cleaning:b.cleaning===true,holiday,hours:b.hours||0,repeat:b.repeat===true}),new Date().toISOString())];
-   if(status!=='cancelled')for(const s of slot==='full'?['morning','afternoon']:[slot])statements.push(db.prepare('INSERT INTO slots(date,slot,booking) VALUES(?,?,?)').bind(date,s,id));
+   const occupied=slot==='full'||slot==='morning'&&b.hours>2?['morning','afternoon']:[slot];
+   if(status!=='cancelled')for(const s of occupied)statements.push(db.prepare('INSERT INTO slots(date,slot,booking) VALUES(?,?,?)').bind(date,s,id));
    try{await db.batch(statements);}catch(e){if(/UNIQUE|promo_limit/i.test(String(e)))fail('Ese turno está ocupado o el código ha agotado sus usos. No se ha guardado ningún cambio.',409);throw e;}
    await log(db,m.id,'Reserva guardada: '+date+' · '+status);return json({ok:true,id,total:q.base+q.extras-reduction,discount:reduction});
   }
