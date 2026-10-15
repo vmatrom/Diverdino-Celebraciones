@@ -32,4 +32,22 @@ context.hooks.analyticsConsent(false);const n=context.window.dataLayer.length;co
 check('Revoking stops event dispatch',context.window.dataLayer.length,n);
 check('Revoking disables GA4',context.window['ga-disable-G-TEST1234'],true);
 check('Revoking expires analytics cookies',cookies.some(x=>x.startsWith('_ga=; Max-Age=0')),true);
+const connectionSource=ts.transpileModule(await readFile('lib/connections.ts','utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText;
+const {saveConnection,connectionState,verifyMetricool}=await import('data:text/javascript;base64,'+Buffer.from(connectionSource).toString('base64'));
+let row=null;const db={prepare:sql=>({bind(...values){this.values=values;return this;},async first(){return row;},async all(){return {results:row?[row]:[]};},async run(){if(sql.startsWith('INSERT')){const [provider,settings,encrypted_secret,verified,updated]=this.values;row={provider,settings,encrypted_secret,verified,updated};}else if(sql.includes("verified=''"))row.verified='';else row.verified=this.values[0];return {meta:{changes:1}};}})};
+const env={CONNECTIONS_ENCRYPTION_KEY:'ab'.repeat(32)},token='test-only-token-never-sent-outside-unit-tests';
+await saveConnection(db,env,{provider:'metricool',account:'QA',userId:'123',blogId:'456',token});
+check('Credential is encrypted at rest',row.encrypted_secret.includes(token),false);
+check('API state does not expose ciphertext or credential',JSON.stringify(await connectionState(db)).includes(row.encrypted_secret),false);
+const firstCipher=row.encrypted_secret;await saveConnection(db,env,{provider:'metricool',account:'QA',userId:'123',blogId:'456',token});
+check('Random IV changes ciphertext for same token',row.encrypted_secret!==firstCipher,true);
+const nativeFetch=globalThis.fetch;let remoteRequest=null;
+try{globalThis.fetch=async(url,options)=>{remoteRequest={url:String(url),options};return Response.json([{blogId:456}]);};
+ check('Read-only Metricool verification succeeds',(await verifyMetricool(db,env)).ok,true);
+ check('Only official Metricool endpoint is called',remoteRequest.url,'https://app.metricool.com/api/admin/simpleProfiles?userId=123');
+ check('Encrypted token decrypts only for upstream authorization',remoteRequest.options.headers['X-Mc-Auth'],token);
+ check('Verification records a timestamp',!!row.verified,true);
+ globalThis.fetch=async()=>new Response('',{status:401});await assert.rejects(()=>verifyMetricool(db,env),/rechazado/);checks++;
+ check('Failed recheck clears verification',row.verified,'');
+}finally{globalThis.fetch=nativeFetch;}
 console.log(`\n${checks} calendar and analytics integration checks passed (no external posts or analytics sent).`);

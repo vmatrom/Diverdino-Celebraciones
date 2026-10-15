@@ -24,6 +24,10 @@ Los eventos recurrentes, zonas distintas de Madrid/UTC y eventos nocturnos o de 
 
 ## Publicación en redes
 
+Se ha elegido Metricool. En Conexiones → Añadir mis cuentas se pueden guardar cuenta de referencia, userId, blogId y token API. El token se cifra con AES-256-GCM y una clave de servidor configurada como secreto de Sites. El estado de la API solo devuelve `hasToken`, nunca el token ni su cifrado. Dejar vacío conserva el token; «Quitar token del panel» lo retira del almacenamiento, sin revocarlo en Metricool.
+
+«Comprobar acceso API» realiza una lectura de marcas en el endpoint oficial y comprueba el blogId elegido. No demuestra permisos de publicación ni envía contenido. La programación automática y la gestión de archivos públicos para Metricool permanecen pendientes de completar y verificar cuando la propiedad autorice sus cuentas. No rotar `CONNECTIONS_ENCRYPTION_KEY` sin migrar primero las credenciales cifradas.
+
 Opción de proveedor: Metricool. Su integración MCP permite trabajar con el asistente, pero no convierte por sí sola el panel de Diverdino en cliente de publicación. El panel necesitaría su API, disponible en planes Advanced y Custom, y un token guardado únicamente como secreto de servidor. No contratar ni activar un plan automáticamente.
 
 Antes de habilitar envíos: autorizar Facebook/Instagram y TikTok en la marca Diverdino; verificar los IDs de cuentas, permisos, formatos y zona horaria; enviar únicamente publicaciones aprobadas por el administrador. El proveedor debe devolver un identificador de programación/publicación y leerse de vuelta. Guardar una fecha editorial o pulsar «Publicada» manualmente no prueba un envío. No usar publicaciones reales como pruebas sin autorización sobre el contenido concreto.
@@ -33,6 +37,8 @@ Opción directa: aplicación Meta con permisos de publicación y aplicación Tik
 ## Estadísticas de Pages y Search Console
 
 `public/integrations.json` contiene solo identificadores públicos:
+
+El panel permite guardar por separado la cuenta Google de referencia, ID del flujo, ID de propiedad y verificación HTML; no guarda la contraseña de Google. «Descargar ajustes para Pages» genera los identificadores públicos que deben incorporarse a `public/integrations.json` y publicarse. Guardar el formulario no cambia automáticamente la versión de GitHub Pages ni confirma una verificación de Google.
 
 - `ga4MeasurementId`: ID real `G-...` del flujo web de GA4. Vacío significa sin conexión. No añadir secretos.
 - `googleSiteVerification`: valor `content` de la etiqueta HTML de Google. Vacío significa que no se inserta ninguna etiqueta. Publicar la etiqueta no implica verificación conseguida.

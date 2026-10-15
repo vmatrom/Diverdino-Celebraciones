@@ -2,7 +2,8 @@ import adminHTML from '../content/admin.html?raw';
 import {price,discount,day} from './business';
 import {parseCalendar,holdId} from './calendar-import';
 import publicSettings from '../public/integrations.json';
-type Env={DB?:D1Database;BUCKET?:R2Bucket;ADMIN_EMAIL?:string};
+import {connectionState,saveConnection,verifyMetricool} from './connections';
+type Env={DB?:D1Database;BUCKET?:R2Bucket;ADMIN_EMAIL?:string;CONNECTIONS_ENCRYPTION_KEY?:string};
 const headers={'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'};
 function json(data:unknown,status=200){return Response.json(data,{status,headers});}
 function fail(message:string,status=400):never{throw Object.assign(new Error(message),{status});}
@@ -82,10 +83,12 @@ export async function backend(r:Request,env:Env):Promise<Response|null>{
   }
   const m=await member(r,env);if(!['GET','HEAD'].includes(r.method))writeGuard(r);
   if(path==='/api/admin/state'&&r.method==='GET'){
-   const [bookings,promos,recs,files,traffic,audit,holds]=await Promise.all([
-    db.prepare('SELECT * FROM bookings ORDER BY date DESC LIMIT 2000').all(),db.prepare("SELECT p.*,(SELECT COUNT(*) FROM bookings b WHERE b.promo=p.code AND b.status<>'cancelled') uses FROM promotions p ORDER BY code").all(),db.prepare('SELECT * FROM records ORDER BY updated DESC LIMIT 3000').all<any>(),db.prepare('SELECT * FROM media ORDER BY created DESC LIMIT 500').all(),db.prepare('SELECT * FROM visits ORDER BY day DESC LIMIT 5000').all(),db.prepare('SELECT action,created FROM audit ORDER BY created DESC LIMIT 100').all(),db.prepare('SELECT * FROM calendar_holds ORDER BY date LIMIT 3000').all()]);
-   return json({member:{name:m.name,email:m.email,role:m.role,settings:JSON.parse(m.settings)},bookings:bookings.results,promotions:promos.results,records:recs.results.map(x=>({...x,payload:JSON.parse(x.payload)})),media:files.results,traffic:traffic.results,audit:audit.results,calendarHolds:holds.results,integrations:{ga4:publicSettings.ga4MeasurementId,searchConsole:!!publicSettings.googleSiteVerification,publicUrl:publicSettings.publicUrl}});
+   const [bookings,promos,recs,files,traffic,audit,holds,connections]=await Promise.all([
+    db.prepare('SELECT * FROM bookings ORDER BY date DESC LIMIT 2000').all(),db.prepare("SELECT p.*,(SELECT COUNT(*) FROM bookings b WHERE b.promo=p.code AND b.status<>'cancelled') uses FROM promotions p ORDER BY code").all(),db.prepare('SELECT * FROM records ORDER BY updated DESC LIMIT 3000').all<any>(),db.prepare('SELECT * FROM media ORDER BY created DESC LIMIT 500').all(),db.prepare('SELECT * FROM visits ORDER BY day DESC LIMIT 5000').all(),db.prepare('SELECT action,created FROM audit ORDER BY created DESC LIMIT 100').all(),db.prepare('SELECT * FROM calendar_holds ORDER BY date LIMIT 3000').all(),connectionState(db)]);
+   return json({member:{name:m.name,email:m.email,role:m.role,settings:JSON.parse(m.settings)},bookings:bookings.results,promotions:promos.results,records:recs.results.map(x=>({...x,payload:JSON.parse(x.payload)})),media:files.results,traffic:traffic.results,audit:audit.results,calendarHolds:holds.results,connections,integrations:{ga4:publicSettings.ga4MeasurementId,searchConsole:!!publicSettings.googleSiteVerification,publicUrl:publicSettings.publicUrl}});
   }
+  if(path==='/api/admin/connections/save'&&r.method==='POST'){const result=await saveConnection(db,env,await body(r));await log(db,m.id,'Datos de conexión actualizados');return json(result);}
+  if(path==='/api/admin/connections/metricool/check'&&r.method==='POST')return json(await verifyMetricool(db,env));
   if(path==='/api/admin/calendar/import'&&r.method==='POST'){
    const b=await body(r);let parsed;try{parsed=parseCalendar(b.ics);}catch(e){fail((e as Error).message);}
    const entries=await Promise.all(parsed.events.map(async event=>({...event,id:await holdId(event.uid)})));

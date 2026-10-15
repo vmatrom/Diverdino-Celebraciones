@@ -62,7 +62,15 @@ Las imágenes principales son ilustraciones 3D y sus textos alternativos lo indi
 
 HTML semántico, título y descripción locales, un H1, textos alternativos, contacto consistente, preguntas frecuentes visibles, datos JSON-LD de negocio y FAQ, sitemap, robots, Open Graph y resumen `llms.txt`. El archivo de resumen es opcional y no garantiza recomendaciones. No se inventan reseñas ni puntuaciones.
 
-Pages genera su propia URL canónica. Al conectar `www.diverdinoelche.com` al nuevo alojamiento, actualiza la URL de `scripts/build-pages.mjs`, canonical, sitemap, datos estructurados y URLs de imagen; evita publicar dos copias indexables. Después verifica Search Console y la ficha de Google Business Profile. La publicación privada de Sites no se indexa.
+Pages genera su propia URL canónica desde `public/integrations.json`. El dominio sigue gestionado por un tercero: no se ha cambiado DNS ni CNAME. Al recuperar el acceso, configurar el dominio en GitHub, actualizar `publicUrl` y comprobar HTTPS, canonical y sitemap. Después verificar Search Console. La publicación privada de Sites no se indexa.
+
+## Conexiones y traslado de Shifter
+
+Conexiones → Añadir mis cuentas permite guardar la referencia de cuenta de Metricool, userId, blogId y token API. El token se cifra con AES-256-GCM usando el secreto de servidor `CONNECTIONS_ENCRYPTION_KEY`; no se devuelve a la API del navegador. La comprobación realiza una lectura de la marca, sin publicar. La publicación/programación todavía necesita completar y verificar el servicio; guardar un token no activa envíos.
+
+El mismo módulo conserva los datos públicos de GA4 y Search Console y permite descargar la configuración para Pages. Guardarlos no despliega automáticamente cambios ni confirma una verificación. GA4 se carga únicamente con consentimiento, cuando se publica un ID real. Las autorizaciones de cuentas se han pospuesto por decisión de la propiedad.
+
+El importador `.ics` permite seguir usando Shifter mediante exportación a Google Calendar. Incluye vista previa, normalización Europe/Madrid, conflictos, actualización por UID y cancelación explícita. Crea bloqueos de agenda; no inventa contactos ni ingresos. No es sincronización continua. Guía: `content/private-docs/CONEXIONES-REALES.md`.
 
 Fuentes: [Google: funciones de IA y tu web](https://developers.google.com/search/docs/appearance/ai-features?hl=es), [guía de imágenes](https://developers.google.com/search/docs/appearance/google-images), [Shifter](https://www.lrhsoft.com/wsc.html).
 
@@ -72,6 +80,7 @@ Fuentes: [Google: funciones de IA y tu web](https://developers.google.com/search
 node scripts/check-public.mjs
 npx tsc --noEmit
 node scripts/test-backend.mjs
+node scripts/test-integrations.mjs
 node scripts/build-pages.mjs
 npm run build
 ```
