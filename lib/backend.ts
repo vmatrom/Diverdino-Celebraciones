@@ -1,5 +1,7 @@
 import adminHTML from '../content/admin.html?raw';
 import {price,discount,day} from './business';
+import {parseCalendar,holdId} from './calendar-import';
+import publicSettings from '../public/integrations.json';
 type Env={DB?:D1Database;BUCKET?:R2Bucket;ADMIN_EMAIL?:string};
 const headers={'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'};
 function json(data:unknown,status=200){return Response.json(data,{status,headers});}
@@ -71,7 +73,7 @@ export async function backend(r:Request,env:Env):Promise<Response|null>{
    const data=await db.prepare("SELECT id,payload FROM records WHERE kind='events' ORDER BY updated DESC LIMIT 30").all<any>();const items=data.results.map(x=>({id:x.id,...JSON.parse(x.payload)})).filter(x=>x.status==='published'&&x.permission);for(const item of items){if(item.mediaId){const meta=await db.prepare('SELECT mime FROM media WHERE id=?').bind(item.mediaId).first<any>();item.mime=meta?.mime||'';}}return json(items);
   }
   if(path==='/api/availability'&&r.method==='GET'){
-   const date=validDate(u.searchParams.get('date'));const s=await db.prepare('SELECT slot FROM slots WHERE date=?').bind(date).all<any>();return json({date,occupied:s.results.map(x=>x.slot),note:'La confirmación final corresponde al equipo.'});
+   const date=validDate(u.searchParams.get('date'));const s=await db.prepare('SELECT slot FROM slots WHERE date=? UNION SELECT slot FROM calendar_holds WHERE date=?').bind(date,date).all<any>();return json({date,occupied:s.results.map(x=>x.slot),note:'La confirmación final corresponde al equipo.'});
   }
   if(path==='/api/traffic'&&r.method==='POST'){
    writeGuard(r);const b=await body(r);
@@ -80,9 +82,26 @@ export async function backend(r:Request,env:Env):Promise<Response|null>{
   }
   const m=await member(r,env);if(!['GET','HEAD'].includes(r.method))writeGuard(r);
   if(path==='/api/admin/state'&&r.method==='GET'){
-   const [bookings,promos,recs,files,traffic,audit]=await Promise.all([
-    db.prepare('SELECT * FROM bookings ORDER BY date DESC LIMIT 2000').all(),db.prepare("SELECT p.*,(SELECT COUNT(*) FROM bookings b WHERE b.promo=p.code AND b.status<>'cancelled') uses FROM promotions p ORDER BY code").all(),db.prepare('SELECT * FROM records ORDER BY updated DESC LIMIT 3000').all<any>(),db.prepare('SELECT * FROM media ORDER BY created DESC LIMIT 500').all(),db.prepare('SELECT * FROM visits ORDER BY day DESC LIMIT 5000').all(),db.prepare('SELECT action,created FROM audit ORDER BY created DESC LIMIT 100').all()]);
-   return json({member:{name:m.name,email:m.email,role:m.role,settings:JSON.parse(m.settings)},bookings:bookings.results,promotions:promos.results,records:recs.results.map(x=>({...x,payload:JSON.parse(x.payload)})),media:files.results,traffic:traffic.results,audit:audit.results});
+   const [bookings,promos,recs,files,traffic,audit,holds]=await Promise.all([
+    db.prepare('SELECT * FROM bookings ORDER BY date DESC LIMIT 2000').all(),db.prepare("SELECT p.*,(SELECT COUNT(*) FROM bookings b WHERE b.promo=p.code AND b.status<>'cancelled') uses FROM promotions p ORDER BY code").all(),db.prepare('SELECT * FROM records ORDER BY updated DESC LIMIT 3000').all<any>(),db.prepare('SELECT * FROM media ORDER BY created DESC LIMIT 500').all(),db.prepare('SELECT * FROM visits ORDER BY day DESC LIMIT 5000').all(),db.prepare('SELECT action,created FROM audit ORDER BY created DESC LIMIT 100').all(),db.prepare('SELECT * FROM calendar_holds ORDER BY date LIMIT 3000').all()]);
+   return json({member:{name:m.name,email:m.email,role:m.role,settings:JSON.parse(m.settings)},bookings:bookings.results,promotions:promos.results,records:recs.results.map(x=>({...x,payload:JSON.parse(x.payload)})),media:files.results,traffic:traffic.results,audit:audit.results,calendarHolds:holds.results,integrations:{ga4:publicSettings.ga4MeasurementId,searchConsole:!!publicSettings.googleSiteVerification,publicUrl:publicSettings.publicUrl}});
+  }
+  if(path==='/api/admin/calendar/import'&&r.method==='POST'){
+   const b=await body(r);let parsed;try{parsed=parseCalendar(b.ics);}catch(e){fail((e as Error).message);}
+   const entries=await Promise.all(parsed.events.map(async event=>({...event,id:await holdId(event.uid)})));
+   const conflicts:string[]=[];
+   for(const event of entries){if(event.cancelled)continue;for(const slot of event.slots){if(await db.prepare('SELECT booking FROM slots WHERE date=? AND slot=?').bind(event.date,slot).first())conflicts.push(event.title+' · '+event.date+' · '+slot);}}
+   if(b.commit!==true)return json({events:entries,warnings:parsed.warnings,conflicts,canImport:!parsed.warnings.length&&!conflicts.length&&!!entries.length});
+   if(parsed.warnings.length)fail('Revisa los avisos y exporta únicamente los eventos compatibles. No se ha importado nada.');
+   if(conflicts.length)fail('El calendario coincide con reservas de Diverdino. Revisa los conflictos antes de importar.',409);
+   if(!entries.length)fail('No hay eventos compatibles para importar.');
+   const statements=[];for(const event of entries){statements.push(db.prepare('DELETE FROM calendar_holds WHERE id=?').bind(event.id));if(!event.cancelled)for(const slot of event.slots)statements.push(db.prepare('INSERT INTO calendar_holds(id,date,slot,title,updated) VALUES(?,?,?,?,?)').bind(event.id,event.date,slot,event.title,new Date().toISOString()));}
+   try{await db.batch(statements);}catch(e){if(/calendar_conflict/i.test(String(e)))fail('Una reserva acaba de ocupar ese turno. No se ha importado ningún cambio.',409);throw e;}
+   await log(db,m.id,'Calendario Shifter importado: '+entries.length+' eventos revisados');return json({ok:true,count:entries.length});
+  }
+  if(path==='/api/admin/calendar/release'&&r.method==='POST'){
+   const b=await body(r),id=txt(b.id,80,true);if(!/^shifter-[a-f0-9]{64}$/.test(id))fail('Bloqueo no válido.');
+   await db.prepare('DELETE FROM calendar_holds WHERE id=?').bind(id).run();await log(db,m.id,'Bloqueo importado liberado de la agenda');return json({ok:true});
   }
   if(path==='/api/admin/profile'&&r.method==='POST'){
    const b=await body(r);const settings={repeatMode:b.repeatMode==='fixed'?'fixed':'percent',repeatValue:int(b.repeatValue,0,b.repeatMode==='fixed'?19000:100),referralMode:b.referralMode==='fixed'?'fixed':'percent',referralValue:int(b.referralValue,0,b.referralMode==='fixed'?19000:100),tiktok:txt(b.tiktok||'',80)};
@@ -103,7 +122,7 @@ export async function backend(r:Request,env:Env):Promise<Response|null>{
    const statements=[db.prepare('DELETE FROM slots WHERE booking=?').bind(id),db.prepare('INSERT INTO bookings(id,date,slot,status,name,phone,guests,type,base,extras,discount,total,promo,notes,updated) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET date=excluded.date,slot=excluded.slot,status=excluded.status,name=excluded.name,phone=excluded.phone,guests=excluded.guests,type=excluded.type,base=excluded.base,extras=excluded.extras,discount=excluded.discount,total=excluded.total,promo=excluded.promo,notes=excluded.notes,updated=excluded.updated').bind(id,date,slot,status,txt(b.name,120,true),contact,int(b.guests,1,75),txt(b.type,80,true),q.base,q.extras,reduction,q.base+q.extras-reduction,code,JSON.stringify({text:txt(b.notes||'',1500),cleaning:b.cleaning===true,holiday,hours:b.hours||0,repeat:b.repeat===true}),new Date().toISOString())];
    const occupied=slot==='full'||slot==='morning'&&b.hours>2?['morning','afternoon']:[slot];
    if(status!=='cancelled')for(const s of occupied)statements.push(db.prepare('INSERT INTO slots(date,slot,booking) VALUES(?,?,?)').bind(date,s,id));
-   try{await db.batch(statements);}catch(e){if(/UNIQUE|promo_limit/i.test(String(e)))fail('Ese turno está ocupado o el código ha agotado sus usos. No se ha guardado ningún cambio.',409);throw e;}
+   try{await db.batch(statements);}catch(e){if(/UNIQUE|promo_limit|calendar_conflict/i.test(String(e)))fail('Ese turno está ocupado o el código ha agotado sus usos. No se ha guardado ningún cambio.',409);throw e;}
    await log(db,m.id,'Reserva guardada: '+date+' · '+status);return json({ok:true,id,total:q.base+q.extras-reduction,discount:reduction});
   }
   if(path.startsWith('/api/admin/records/')&&r.method==='POST'){

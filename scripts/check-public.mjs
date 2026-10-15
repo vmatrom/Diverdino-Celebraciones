@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import {readFile,readdir} from 'node:fs/promises';
 import path from 'node:path';
+import {publicSettings} from './public-settings.mjs';
+await publicSettings();
 const html=await readFile('public/index.html','utf8');
 assert.ok(html.includes('Diverdino'));
 assert.ok(!/Concepto creativo|propuesta\.html|Diseñada para|Octubre 2026|#4fc3dc<|\bdemo\b|\b360\b/i.test(html),'No production/proposal notes visible');
